@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1017120225776",
+    "project_id": "aplikasi-perawatan-pasien",
+    "storage_bucket": "aplikasi-perawatan-pasien.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1017120225776:android:132880d77c2d5f355b4535",
+        "android_client_info": {
+          "package_name": "com.martindewe.perawat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1017120225776-egkt5bl1k1s7dsfsnpa7cogukd30fo39.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7rbeDw-J8pQv3g45R4VVxrdTyQt-5u1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1017120225776-egkt5bl1k1s7dsfsnpa7cogukd30fo39.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
