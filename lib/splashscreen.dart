@@ -17,6 +17,8 @@ class Splash extends StatefulWidget {
 
 class _Splash extends State<Splash> {
  
+ 
+
   @override
   void initState() {
     super.initState();
@@ -43,18 +45,19 @@ class _Splash extends State<Splash> {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+
+    return  const MaterialApp(
     home: Scaffold(
       backgroundColor: Colors.white,
       body: Center(
         child: Image(
-          image: AssetImage('assets/LogoIcon.png'),
-          width: 150,
-          height: 150,
+          image: AssetImage('assets/homecare.png'),
+          width: 190,
+          
           ),
-       ),
       ),
 
-    );
+    ))
+    ;
 }
 }
