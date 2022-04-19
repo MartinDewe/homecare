@@ -1,6 +1,7 @@
 # perawat_app
 
-A new Flutter project.
+Project Tugas Akhir Cuy..
+Fckk Mampus Otak
 
 ## Getting Started
 
