@@ -1,7 +1,6 @@
 # perawat_app
 
-Project Tugas Akhir Cuy..
-Fckk Mampus Otak
+Project Tugas Akhir
 
 ## Getting Started
 
