@@ -1,6 +1,6 @@
 # perawat_app
 
-A new Flutter project.
+Project Tugas Akhir
 
 ## Getting Started
 
