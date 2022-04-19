@@ -1,13 +1,16 @@
+import 'dart:ui';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:loading_indicator/loading_indicator.dart';
+import 'package:lottie/lottie.dart';
 import 'package:perawat_app/LoginRegister/otplogin.dart';
 
 
 FirebaseAuth _auth = FirebaseAuth.instance;
 final inputankontroler = TextEditingController();
+
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -26,24 +29,28 @@ class _Login extends State<Login> {
 
 
   @override
+  
   Widget build(BuildContext context) {
+   
     final mediawidth = MediaQuery.of(context).size.width;
     final mediaheight = MediaQuery.of(context).size.height;
 
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back, color: Colors.black),
-            onPressed: () => 
-            Navigator.of(context).pop(),
-           ), 
+      home: Stack(
+        children: [
+         Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back, color: Colors.black),
+              onPressed: () => 
+              Navigator.of(context).pop(),
+             ), 
+            backgroundColor: Colors.white,
+            elevation: 0,
+          ),
           backgroundColor: Colors.white,
-          elevation: 0,
-        ),
-        backgroundColor: Colors.white,
-        body: Center(
-          child: Column(
+          body: Center(
+            child: Column(
             children:  [
                Padding(
                 padding: const EdgeInsets.only(top: 1),
@@ -109,7 +116,7 @@ class _Login extends State<Login> {
                   ],
                 ),
               ),
-
+            
                Row(
                 children: [
                Padding(
@@ -127,107 +134,134 @@ class _Login extends State<Login> {
                 ],
               ),
               
-               SizedBox(
-                width: 100,
-                height: 40,
-                child: Padding(
-                  padding: const EdgeInsets.only(top:15),
-                  child: loadingcontrol? const LoadingIndicator(
-                      indicatorType: Indicator.lineScale, /// Required, The loading type of the widget
-                      colors:  [Colors.amberAccent],       /// Optional, The color collections
-                      strokeWidth: 4.0,                     /// Optional, The stroke of the line, only applicable to widget which contains line
-                      pathBackgroundColor: Colors.black   /// Optional, the stroke backgroundColor
-                    ):const Center(),
-                ),
-              )
             ],
-          ),
-        ),
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SizedBox(
-            width: mediawidth * 0.85,
-            child: ElevatedButton(
-              onPressed:() async {
-                 await users.doc('+62' + inputankontroler.text).get().then((value) {
-                 var dats = value.data();
-                 if(dats == null){
-                    setState(() {
-                     logedin = false;
-                   });
-                 } else{
-                   setState(() {
-                     logedin = true;
-                   });
-                 }
-                });
-                  if (inputankontroler.text.isEmpty || inputankontroler.text.length <= 8 || inputankontroler.text.length >= 14) {
-                  setState(() {
-                  pesanerror = 'Masukan nomor HP yang valid ya (9-13 angka).';
-                  loadingcontrol = false;
-                  pesantampil = true;
-                });
-                } else if(logedin == true) {
-                  setState(() {
-                  SystemChannels.textInput.invokeMethod('TextInput.hide');
-                  loadingcontrol = true;
-                  });
-                  await _auth.verifyPhoneNumber(
-                  phoneNumber: '+62' + inputankontroler.text, 
-                  verificationCompleted: (phoneAuthCredential) async{
-
-                  }, 
-                  verificationFailed: (verificationFailed) async{
-                    setState(() {
-                      loadingcontrol = false;
-                      pesanerror = 'Terjadi Kesalahan, Coba beberapa saat.';
-                      pesantampil = true;
-                    });
-                  }, 
-                  codeSent: (verificationId, resendingToken) async{
-                    setState(() {
-                      loadingcontrol = false;
-                      
-                    });
-                    Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) =>  Otplogin(verificationIds: verificationId, phonenumber: '+62' + inputankontroler.text) ),
-                    );
-
-                  }, 
-                  codeAutoRetrievalTimeout: (verificationId) async{
-                     setState(() {
-                      loadingcontrol = false;
-                      pesanerror = 'Request Timeout.';
-                      pesantampil = true;
-                      });
-                  },
-                );
-
-                } else {
-                  setState(() {
-                  pesanerror = 'Nomor HP belum terdaftar.';
-                  loadingcontrol = false;
-                  pesantampil = true;
-                });
-                }
-              }, 
-              child: const Text("Masuk",
-                style: TextStyle(
-                  color: Colors.black, 
-                  fontWeight: FontWeight.bold, 
-                  fontSize: 16, ),
               ),
-              style: ElevatedButton.styleFrom(
-                primary: const Color(0xfff76992),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
+          ),
+          floatingActionButton: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              width: mediawidth * 0.85,
+              child: ElevatedButton(
+                onPressed:() async {
+                   await users.doc('+62' + inputankontroler.text).get().then((value) {
+                   var dats = value.data();
+                   if(dats == null){
+                      setState(() {
+                       logedin = false;
+                     });
+                   } else{
+                     setState(() {
+                       logedin = true;
+                     });
+                   }
+                  });
+                    if (inputankontroler.text.isEmpty || inputankontroler.text.length <= 8 || inputankontroler.text.length >= 14) {
+                    setState(() {
+                    pesanerror = 'Masukan nomor HP yang valid ya (9-13 angka).';
+                    loadingcontrol = false;
+                    pesantampil = true;
+                  });
+                  } else if(logedin == true) {
+                    setState(() {
+                    SystemChannels.textInput.invokeMethod('TextInput.hide');
+                    loadingcontrol = true;
+                    });
+                    await _auth.verifyPhoneNumber(
+                    phoneNumber: '+62' + inputankontroler.text, 
+                    verificationCompleted: (phoneAuthCredential) async{
+      
+                    }, 
+                    verificationFailed: (verificationFailed) async{
+                      setState(() {
+                        loadingcontrol = false;
+                        pesanerror = 'Terjadi Kesalahan, Coba beberapa saat.';
+                        pesantampil = true;
+                      });
+                    }, 
+                    codeSent: (verificationId, resendingToken) async{
+                      setState(() {
+                        loadingcontrol = false;
+                        
+                      });
+                      Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>  Otplogin(verificationIds: verificationId, phonenumber: '+62' + inputankontroler.text) ),
+                      );
+      
+                    }, 
+                    codeAutoRetrievalTimeout: (verificationId) async{
+                       setState(() {
+                        loadingcontrol = false;
+                        pesanerror = 'Request Timeout.';
+                        pesantampil = true;
+                        });
+                    },
+                  );
+      
+                  } else {
+                    setState(() {
+                    pesanerror = 'Nomor HP belum terdaftar.';
+                    loadingcontrol = false;
+                    pesantampil = true;
+                  });
+                  }
+                }, 
+                child: const Text("Masuk",
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontWeight: FontWeight.bold, 
+                    fontSize: 16, ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  primary: const Color(0xfff76992),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                 ),
               ),
             ),
           ),
         ),
+        loadingcontrol? loadingcontent(mediawidth, mediaheight) : navbarcolor()
+        ]
       ),
+      
     );
+
   }
+  
+  navbarcolor(){
+    setState(() {
+     SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+      systemNavigationBarColor: Colors.white,
+    ));
+    });
+    return const Center();
+  }
+
+  loadingcontent(mediawidth, mediaheight){
+   
+   setState(() {
+     SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+      systemNavigationBarColor: Colors.white12,
+    ));
+   });
+    
+  return BackdropFilter(
+    filter: ImageFilter.blur(
+      sigmaX: 3 ,
+      sigmaY: 3,
+    ),
+    child: Container(
+      width: mediawidth,
+      height: mediaheight,
+      color: Colors.black87,
+      child: Lottie.asset(
+        'assets/paperplane.json'
+      ),
+    ),
+  );
+}
 }
