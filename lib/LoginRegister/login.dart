@@ -34,7 +34,7 @@ class _Login extends State<Login> {
    
     final mediawidth = MediaQuery.of(context).size.width;
     final mediaheight = MediaQuery.of(context).size.height;
-
+    
     return MaterialApp(
       home: Stack(
         children: [
@@ -143,6 +143,8 @@ class _Login extends State<Login> {
               width: mediawidth * 0.85,
               child: ElevatedButton(
                 onPressed:() async {
+                
+                  try{
                    await users.doc('+62' + inputankontroler.text).get().then((value) {
                    var dats = value.data();
                    if(dats == null){
@@ -154,50 +156,62 @@ class _Login extends State<Login> {
                        logedin = true;
                      });
                    }
-                  });
-                    if (inputankontroler.text.isEmpty || inputankontroler.text.length <= 8 || inputankontroler.text.length >= 14) {
+                  });} on Exception {
+              
                     setState(() {
-                    pesanerror = 'Masukan nomor HP yang valid ya (9-13 angka).';
-                    loadingcontrol = false;
-                    pesantampil = true;
-                  });
-                  } else if(logedin == true) {
-                    setState(() {
-                    SystemChannels.textInput.invokeMethod('TextInput.hide');
-                    loadingcontrol = true;
-                    });
-                    await _auth.verifyPhoneNumber(
-                    phoneNumber: '+62' + inputankontroler.text, 
-                    verificationCompleted: (phoneAuthCredential) async{
-      
-                    }, 
-                    verificationFailed: (verificationFailed) async{
-                      setState(() {
-                        loadingcontrol = false;
-                        pesanerror = 'Terjadi Kesalahan, Coba beberapa saat.';
-                        pesantampil = true;
-                      });
-                    }, 
-                    codeSent: (verificationId, resendingToken) async{
-                      setState(() {
-                        loadingcontrol = false;
-                        
-                      });
-                      Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) =>  Otplogin(verificationIds: verificationId, phonenumber: '+62' + inputankontroler.text) ),
-                      );
-      
-                    }, 
-                    codeAutoRetrievalTimeout: (verificationId) async{
-                       setState(() {
-                        loadingcontrol = false;
                         pesanerror = 'Request Timeout.';
                         pesantampil = true;
+                    });
+               
+                  }
+                    if (inputankontroler.text.isEmpty || inputankontroler.text.length <= 8 || inputankontroler.text.length >= 14) {
+                      setState(() {
+                      pesanerror = 'Masukan nomor HP yang valid ya (9-13 angka).';
+                      loadingcontrol = false;
+                      pesantampil = true;
+                    });
+                  } else if(logedin == true) {
+                      setState(() {
+                      SystemChannels.textInput.invokeMethod('TextInput.hide');
+                      loadingcontrol = true;
+                      });
+                      try{
+                        await _auth.verifyPhoneNumber(
+                        phoneNumber: '+62' + inputankontroler.text, 
+                        verificationCompleted: (phoneAuthCredential) async{}, 
+                        verificationFailed: (verificationFailed) async{
+                          setState(() {
+                            loadingcontrol = false;
+                            pesanerror = 'Terjadi Kesalahan, Coba beberapa saat.';
+                            pesantampil = true;
+                          });
+                        }, 
+                        codeSent: (verificationId, resendingToken) async{
+                          setState(() {
+                            loadingcontrol = false;
+                            
+                          });
+                          Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) =>  Otplogin(verificationIds: verificationId, phonenumber: '+62' + inputankontroler.text) ),
+                          );
+          
+                        }, 
+                        codeAutoRetrievalTimeout: (verificationId) async{
+                          setState(() {
+                            loadingcontrol = false;
+                            pesanerror = 'Request Timeout.';
+                            pesantampil = true;
+                            });
+                        },
+                        );
+                      } on Exception {
+                        setState(() {
+                            pesanerror = 'Request Timeout.';
+                            pesantampil = true;
                         });
-                    },
-                  );
-      
+
+                      }
                   } else {
                     setState(() {
                     pesanerror = 'Nomor HP belum terdaftar.';
@@ -231,25 +245,22 @@ class _Login extends State<Login> {
   }
   
   navbarcolor(){
-    setState(() {
-     SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-      systemNavigationBarColor: Colors.white,
-    ));
-    });
-    return const Center();
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+    value: SystemUiOverlayStyle.light.copyWith(
+        systemNavigationBarColor: Colors.white,
+    ),
+    child: const Center()
+    );
   }
 
   loadingcontent(mediawidth, mediaheight){
    
-   setState(() {
-     SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-      systemNavigationBarColor: Colors.white12,
-    ));
-   });
-    
-  return BackdropFilter(
+  
+  return AnnotatedRegion<SystemUiOverlayStyle>(
+    value: SystemUiOverlayStyle.light.copyWith(
+        systemNavigationBarColor: Colors.black87,
+    ),
+    child: BackdropFilter(
     filter: ImageFilter.blur(
       sigmaX: 3 ,
       sigmaY: 3,
@@ -262,6 +273,7 @@ class _Login extends State<Login> {
         'assets/paperplane.json'
       ),
     ),
+  )
   );
 }
 }
