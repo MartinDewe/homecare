@@ -59,7 +59,7 @@ class _Register extends State<Register> {
             child: Column(
               children: [
                 Lottie.asset(
-                 'assets/93385-login.json',
+                 'assets/register-icon.json',
                  height: mediaheight*0.25
                ),
                 Container(

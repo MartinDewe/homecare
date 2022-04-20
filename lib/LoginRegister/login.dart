@@ -53,7 +53,7 @@ class _Login extends State<Login> {
             child: Column(
             children:  [
                Lottie.asset(
-                 'assets/72874-user-profile-v2.json',
+                 'assets/login-icon.json',
                  height: mediaheight*0.25
                ),
               Padding(
