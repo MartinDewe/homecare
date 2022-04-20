@@ -1,7 +1,8 @@
+import 'dart:ui';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:loading_indicator/loading_indicator.dart';
+import 'package:lottie/lottie.dart';
 import 'package:perawat_app/home.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -28,46 +29,63 @@ class _Otpsection extends State<Otpsection> {
   @override
   Widget build(BuildContext context) {
     
+    final mediawidth = MediaQuery.of(context).size.width;
+    final mediaheight = MediaQuery.of(context).size.height;
+
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.white,
-        appBar:  AppBar(
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back, color: Colors.black),
-            onPressed: () => Navigator.of(context).pop(),
-           ), 
+      home: Stack(
+        children: [
+          Scaffold(
           backgroundColor: Colors.white,
-          elevation: 0,
-        ),
-        body: Center(
-          child: Column(
-            children:  [
-              RichText(
+          appBar:  AppBar(
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back, color: Colors.black),
+              onPressed: () => Navigator.of(context).pop(),
+             ), 
+            backgroundColor: Colors.white,
+            elevation: 0,
+          ),
+          body: Center(
+            child: Column(
+              children:  [
+                 Stack(
+                    children: [
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Lottie.asset(
+                          'assets/background-icon.json',
+                          height: mediaheight*0.3
+                        ),
+                      ),
+                    ),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top:16.0),
+                        child: Lottie.asset(
+                          'assets/send-sms.json',
+                          height: mediaheight*0.3
+                        ),
+                      ),
+                    ),
+                    
+                    ]
+                   ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 5),
+                  child: RichText(
                     text: const TextSpan(
                       style: TextStyle(
-                        color: Colors.pinkAccent,
+                        color: Colors.black,
                         fontWeight: FontWeight.bold, 
                         fontSize: 24, ),
-                        text: 'Kode Berhasil Dikirim !'
+                        text: 'Verifikasi OTP'
                     ),
-                ),
-              const  Image(
-                  image: AssetImage('assets/otpchibi.png'),
-                  width: 300,
-                  height: 160,
-                ),
-              RichText(
-                  text: const TextSpan(
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold, 
-                      fontSize: 24, ),
-                      text: 'Masukan 6 Digit Kode OTP :'
                   ),
                 ),
-              Padding(
-                padding: const EdgeInsets.only(left: 30, right: 30, top: 10),
-                child: PinCodeTextField(
+                Padding(
+                  padding: const EdgeInsets.only(left: 30, right: 30, top: 10),
+                  child: PinCodeTextField(
                     appContext: context,
                     keyboardType: TextInputType.number,
                     inputFormatters: [
@@ -75,12 +93,10 @@ class _Otpsection extends State<Otpsection> {
                     ],
                     length: 6,
                     obscureText: false,
-                    animationType: AnimationType.fade,
+                    animationType: AnimationType.scale,
                     pinTheme: PinTheme(
-                      shape: PinCodeFieldShape.underline,
-                      fieldHeight: 45,
-                      fieldWidth: 40,
-                      inactiveColor: Colors.pinkAccent,
+                      shape: PinCodeFieldShape.circle,
+                      inactiveColor: Colors.black38,
                     ),
                     animationDuration: const Duration(milliseconds: 300),
                     controller: otpinputankcontroler,
@@ -90,10 +106,10 @@ class _Otpsection extends State<Otpsection> {
                         loadingcontrol = true;
                       });
                       try {
-                       await _auth.signInWithCredential(credential);
+                        await _auth.signInWithCredential(credential);
                         final User? users = _auth.currentUser;
                         final uid = users!.uid;
-                       await FirebaseFirestore.instance.collection('users').doc(widget.phonenumber).set(
+                        await FirebaseFirestore.instance.collection('users').doc(widget.phonenumber).set(
                         {
                           'name': '',
                           'uid' : uid
@@ -108,58 +124,80 @@ class _Otpsection extends State<Otpsection> {
                         Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(builder: (context) => const HomePage() ),
-                           (Route<dynamic> route) => false
+                            (Route<dynamic> route) => false
                         );
-                      }on FirebaseAuthException {
+                      }on Exception {
                         setState(() {
                             loadingcontrol = false;
                             errortampil = true;
                         });
- 
+      
                       }
                       
-                    },
-                    onChanged: (value) {
-                      setState(() {
-                        errortampil = false;
-                        currentText = value;
-                      });
-                     
-                    },
-                    beforeTextPaste: (text) {
-                     
-                      //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
-                      //but you can show anything you want here, like your pop up saying wrong paste format or etc
-                      return false;
-                    },
-                  ),
-              ),
-              Visibility(
-                visible: errortampil,
-                child: const Text('Kode Verifikasi Tidak Valid.',
-                  style: TextStyle( 
-                    color: Colors.redAccent
+                      },
+                      onChanged: (value) {
+                        setState(() {
+                          errortampil = false;
+                          currentText = value;
+                        });
+                       
+                      },
+                      beforeTextPaste: (text) {
+                       
+                        //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
+                        //but you can show anything you want here, like your pop up saying wrong paste format or etc
+                        return false;
+                      },
+                    ),
+                ),
+                Visibility(
+                  visible: errortampil,
+                  child: const Text('Kode Verifikasi Tidak Valid.',
+                    style: TextStyle( 
+                      color: Colors.redAccent
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                width: 100,
-                height: 40,
-                child: Padding(
-                  padding: const EdgeInsets.only(top:15 ),
-                  child: loadingcontrol? const LoadingIndicator(
-                    indicatorType: Indicator.lineScale, /// Required, The loading type of the widget
-                    colors:  [Colors.amberAccent],       /// Optional, The color collections
-                    strokeWidth: 4.0,                     /// Optional, The stroke of the line, only applicable to widget which contains line
-                    pathBackgroundColor: Colors.black   /// Optional, the stroke backgroundColor
-                  ):const Center(),
-                ),
-              )
-            ],
+               
+              ],
+            ),
           ),
         ),
+        loadingcontrol? loadingcontent(mediawidth, mediaheight):navbarcolor()
+      ]
       ),
     );
 
   }
+
+   navbarcolor(){
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+    value: SystemUiOverlayStyle.light.copyWith(
+        systemNavigationBarColor: Colors.white,
+    ),
+    child: const Center()
+    );
+  }
+
+  loadingcontent(mediawidth, mediaheight){
+   
+  
+  return AnnotatedRegion<SystemUiOverlayStyle>(
+    value: SystemUiOverlayStyle.light.copyWith(
+        systemNavigationBarColor: Colors.white,
+    ),
+    child: BackdropFilter(
+    filter: ImageFilter.blur(
+      sigmaX: 3 ,
+      sigmaY: 3,
+    ),
+    child: Container(
+      width: mediawidth,
+      height: mediaheight,
+      color: Colors.white,
+      child: Lottie.asset('assets/preloader-icon.json'),
+    ),
+  )
+  );
+}
 }

@@ -154,7 +154,7 @@ class _HomePage extends State<HomePage> {
                 ),
                 GestureDetector(
                   onTap: (){
-                
+            
                   },
                   child: Container(
                     decoration: BoxDecoration(

@@ -16,8 +16,6 @@ class Splash extends StatefulWidget {
 }
 
 class _Splash extends State<Splash> {
- 
- 
 
   @override
   void initState() {
