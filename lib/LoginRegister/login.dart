@@ -52,16 +52,12 @@ class _Login extends State<Login> {
           body: Center(
             child: Column(
             children:  [
-               Padding(
-                padding: const EdgeInsets.only(top: 1),
-                child: Image(
-                    image: const AssetImage('assets/chibiperawat2.png'),
-                    width: mediawidth * 0.6,
-                    height: mediaheight * 0.2,
-                ),
-              ),
+               Lottie.asset(
+                 'assets/72874-user-profile-v2.json',
+                 height: mediaheight*0.25
+               ),
               Padding(
-                padding: EdgeInsets.only(top: 20, left: mediawidth * 0.1, right: mediawidth * 0.05),
+                padding: EdgeInsets.only(left: mediawidth * 0.1, right: mediawidth * 0.05),
                 child: RichText(
                     text: const TextSpan(
                       style: TextStyle(
@@ -73,7 +69,7 @@ class _Login extends State<Login> {
                 )
               ),
                Container(
-                margin: EdgeInsets.only(top:15,left: mediawidth * 0.1, right:  mediawidth * 0.1),
+                margin: EdgeInsets.only(top:10,left: mediawidth * 0.1, right:  mediawidth * 0.1),
                 child: Row(
                   children: [
                     Container(
@@ -157,7 +153,7 @@ class _Login extends State<Login> {
                      });
                    }
                   });} on Exception {
-              
+                    
                     setState(() {
                         pesanerror = 'Request Timeout.';
                         pesantampil = true;
@@ -227,7 +223,7 @@ class _Login extends State<Login> {
                     fontSize: 16, ),
                 ),
                 style: ElevatedButton.styleFrom(
-                  primary: const Color(0xfff76992),
+                  primary: const Color(0xFFffea66),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
