@@ -1,7 +1,9 @@
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:skeletons/skeletons.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -65,7 +67,7 @@ class _HomePage extends State<HomePage> {
             /// Home
             DotNavigationBarItem(
               icon: const Icon(Icons.home),
-              selectedColor: Colors.purple,
+              selectedColor: Colors.indigo,
             ),
 
             /// Likes
@@ -93,7 +95,7 @@ class _HomePage extends State<HomePage> {
     );
   }
 
-  _ContentView() {
+_ContentView() {
 
   final mediawidth = MediaQuery.of(context).size.width;
   final mediaheight = MediaQuery.of(context).size.height;
@@ -102,256 +104,260 @@ class _HomePage extends State<HomePage> {
     navcontrol = true;
   });
 
-  return Column(
-    children: [
-      Container(
-        height: mediaheight*0.3,
-        width : mediawidth,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/TopMainMenu.jpg'),
-            fit: BoxFit.cover
-        )
-        
-        ),
-        child: Row(
-          children: [
-            Column(
-              children: [
-              Container(
-                margin: const EdgeInsets.only(top: 47, bottom: 12),
-                width: 170,
-                child: const Text('Hallo!',
-                  style: TextStyle(
-                    color: Colors.black, 
-                    fontWeight: FontWeight.bold, 
-                    fontSize: 20, ),
+  return Stack(
+    children:[
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+          padding: EdgeInsets.only(top:mediaheight*0.08, left: 35),
+          child: Text(
+            'Hallo !',
+             style: GoogleFonts.poppins(
+              color: Colors.black,
+              fontWeight: FontWeight.bold, 
+              fontSize: 24,
+            ),     
+          )
+          ),
+          Padding(
+          padding: const EdgeInsets.only(left: 35),
+          child: Text(
+            'Bagaimana Harimu ?',
+             style: GoogleFonts.poppins(
+                color: Colors.black45,
+                fontWeight: FontWeight.w400, 
+                fontSize: 18,
+            ),     
+          )
+          ),
+          Center(
+            child: Container(
+              margin: EdgeInsets.only(top:mediaheight*0.04),
+              width: mediawidth*0.83,
+              height: mediaheight*0.2, 
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(40),
+                color: Colors.yellow[200]
+              ),
+              child: Container(
+                margin: EdgeInsets.only(top: mediaheight*0.04, left: 20),
+                alignment: Alignment.topLeft,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children:[
+                  Text(
+                  'Tetap Jaga',
+                  style: GoogleFonts.poppins(
+                      color: Colors.black54,
+                      fontWeight: FontWeight.w500, 
+                      fontSize: 20,
+                  ),     
+                  ),
+                  Text(
+                  'Kesehatanmu',
+                  style: GoogleFonts.poppins(
+                      color: Colors.black54,
+                      fontWeight: FontWeight.w500, 
+                      fontSize: 20,
+                  ), 
+                  ),
+                  
+                  ]
                 ),
               ),
-              
-            Container(
-              margin: const EdgeInsets.only(left: 20),
-              height: mediaheight*0.155,
-              width: mediaheight*0.25,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.black12,
-              ),
-              child: Column(
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top:mediaheight*0.06, left: 35),
+            child: Text(
+              'Layanan Kami',
+              style: GoogleFonts.poppins(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500, 
+                  fontSize: 18,
+              ), 
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.only(left:35, right: 35),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top:15, right: 15, left: 15, bottom: 10),
-                  child: RichText(
-                    textAlign: TextAlign.center,
-                  text: const TextSpan(
-                  style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w400, 
-                  fontSize: 20, ),
-                  text: 'Segera lengkapi profil anda.' 
-                  ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: (){
-            
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.white)
-                    ),
-                    child: const Padding(
-                      padding:  EdgeInsets.only(top: 5, right: 8, left: 8, bottom: 5),
-                      child:  Text(
-                        'Klik Disini >',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w400, 
-                          fontSize: 15, 
-                        ) ,
+                  padding: EdgeInsets.only(top:mediaheight*0.03),
+                  child: GestureDetector(
+                    onTap: (){
+
+                    },
+                    child: Column(
+                      children: [
+                        Container(
+                        width: mediawidth*0.15,
+                        height: mediaheight*0.075,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.yellow[100],
+                          border: Border.all(color: Colors.yellow.shade200)      
+                        ),
+                        child: const Padding(
+                          padding:  EdgeInsets.all(10.0),
+                          child:  Image(
+                            image: AssetImage('assets/coronavirus.png'),
+                          ),
+                        ),
                       ),
+                       Padding(
+                        padding: EdgeInsets.only(top:mediaheight*0.01),
+                        child: Text(
+                          'Covid-19',
+                          style: GoogleFonts.poppins(
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal, 
+                              fontSize: 12,
+                          ), 
+                        ),
+                      ),
+                      ]
                     ),
                   ),
-                )
-              ],
-              ),
-          ),
-              ],
-            ),
+                ),
 
-            Padding(
-              padding: const EdgeInsets.only(top: 10, left: 10),
-              child: Image(
-                image: const AssetImage('assets/mascot.png'),
-                height: mediaheight*0.20,  
-            ),
+                //break Line 1
+                Padding(
+                  padding: EdgeInsets.only(top:mediaheight*0.03),
+                  child: GestureDetector(
+                    onTap: (){
 
-          ),
-          ],
-        ),
-      ),
-      Row(
-        children: [
-        Container(
-          margin: const EdgeInsets.only(left: 20, right: 10, top: 50),
-          width: mediawidth*0.4,
-          height: mediaheight*0.2,
-          decoration: BoxDecoration(
-            color: const Color(0xfff76992),
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 7,
-              offset: const Offset(0, 3), // changes position of shadow
+                    },
+                    child: Column(
+                      children: [
+                        Container(
+                        width: mediawidth*0.15,
+                        height: mediaheight*0.075,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.yellow[100],
+                          border: Border.all(color: Colors.yellow.shade200)      
+                        ),
+                        child: const Padding(
+                          padding:  EdgeInsets.all(10.0),
+                          child:  Image(
+                            image: AssetImage('assets/infus-icon.png'),
+                          ),
+                        ),
+                      ),
+                       Padding(
+                        padding: EdgeInsets.only(top:mediaheight*0.01),
+                        child: Text(
+                          'Infus',
+                          style: GoogleFonts.poppins(
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal, 
+                              fontSize: 12,
+                          ), 
+                        ),
+                      ),
+                      ]
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top:mediaheight*0.03),
+                  child: GestureDetector(
+                    onTap: (){
+
+                    },
+                    child: Column(
+                      children: [
+                        Container(
+                        width: mediawidth*0.15,
+                        height: mediaheight*0.075,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.yellow[100],
+                          border: Border.all(color: Colors.yellow.shade200)      
+                        ),
+                        child: const Padding(
+                          padding:  EdgeInsets.all(10.0),
+                          child:  Image(
+                            image: AssetImage('assets/syringe.png'),
+                          ),
+                        ),
+                      ),
+                       Padding(
+                        padding: EdgeInsets.only(top:mediaheight*0.01),
+                        child: Text(
+                          'Injeksi',
+                          style: GoogleFonts.poppins(
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal, 
+                              fontSize: 12,
+                          ), 
+                        ),
+                      ),
+                      ]
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top:mediaheight*0.03),
+                  child: GestureDetector(
+                    onTap: (){
+
+                    },
+                    child: Column(
+                      children: [
+                        Container(
+                        width: mediawidth*0.15,
+                        height: mediaheight*0.075,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.yellow[100],
+                          border: Border.all(color: Colors.yellow.shade200)      
+                        ),
+                        child: const Padding(
+                          padding:  EdgeInsets.all(10.0),
+                          child:  Image(
+                            image: AssetImage('assets/other.png'),
+                          ),
+                        ),
+                      ),
+                       Padding(
+                        padding: EdgeInsets.only(top:mediaheight*0.01),
+                        child: Text(
+                          'Lainnya',
+                          style: GoogleFonts.poppins(
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal, 
+                              fontSize: 12,
+                          ), 
+                        ),
+                      ),
+                      ]
+                    ),
+                  ),
+                ),
+                
+                
+                
+              ], //deadline
             ),
-            ],
-          ),
-          child: Column(
-            children:  [
-            SizedBox(
-              height: mediaheight*0.15,
-              child: const Image(
-              image:  AssetImage('assets/band-aid.png')
-              ),
-            ),
-            const Text(
-              'Rawat Luka',
-                style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w500, 
-                fontSize: 16, 
-                ) ,
-            )
-            ],
-          ), 
-        ),
-        Container(
-          margin: const EdgeInsets.only(left: 20, right: 10, top: 50),
-          width: mediawidth*0.4,
-          height: mediaheight*0.2,
-          decoration: BoxDecoration(
-            color: const Color(0xfff76992),
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 7,
-              offset: const Offset(0, 3), // changes position of shadow
-            ),
-            ],
-          ),
-          child: Column(
-            children:  [
-            SizedBox(
-              height: mediaheight*0.15,
-              child: const Image(
-              image:  AssetImage('assets/infusion.png')
-              ),
-            ),
-            const Text(
-              'Pasang Infus',
-                style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w500, 
-                fontSize: 16, 
-                ) ,
-            )
-            ],
-          ), 
-        ),
-        
-        
+          )
         ],
       ),
-
-      Row(
-        children: [
-        Container(
-          margin: const EdgeInsets.only(left: 20, right: 10, top: 30),
-          width: mediawidth*0.4,
-          height: mediaheight*0.2,
-          decoration: BoxDecoration(
-            color: const Color(0xfff76992),
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 7,
-              offset: const Offset(0, 3), // changes position of shadow
-            ),
-            ],
-          ),
-          child: Column(
-            children:  [
-            Padding(
-              padding: const EdgeInsets.only(top:8.0),
-              child: SizedBox(
-                height: mediaheight*0.14,
-                child: const Image(
-                image:  AssetImage('assets/nurse.png')
-                ),
-              ),
-            ),
-            const Text(
-              'Jasa Perawat',
-                style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w500, 
-                fontSize: 16, 
-                ) ,
-            )
-            ],
-          ), 
+      Container(
+        margin: EdgeInsets.only(top:mediaheight*0.18),
+        height: mediaheight*0.25,
+        alignment: Alignment.centerRight,
+        child: Lottie.asset(
+          'assets/meditation-icon.json',
         ),
-        Container(
-          margin: const EdgeInsets.only(left: 20, right: 10, top: 30),
-          width: mediawidth*0.4,
-          height: mediaheight*0.2,
-          decoration: BoxDecoration(
-            color: const Color(0xfff76992),
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 7,
-              offset: const Offset(0, 3), // changes position of shadow
-            ),
-            ],
-          ),
-          child: Column(
-            children:  [
-            Padding(
-              padding: const EdgeInsets.only(top:8.0),
-              child: SizedBox(
-                height: mediaheight*0.14,
-                child: const Image(
-                image:  AssetImage('assets/sick.png')
-                ),
-              ),
-            ),
-            const Text(
-              'Jaga Pasien',
-                style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w500, 
-                fontSize: 16, 
-                ) ,
-            )
-            ],
-          ), 
-        ),
-        
-        
-        ],
       ),
+      
 
-    ],
+    ]
   );
 }
 
