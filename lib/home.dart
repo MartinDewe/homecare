@@ -370,268 +370,233 @@ _SkeltonView()  {
     navcontrol = false;
   });
 
-  return Column(
+  return Stack(
     children: [
-    Container(
-      width: mediawidth,
-      height: mediaheight*0.2,
-      margin: EdgeInsets.only(left:15, right: 15, top: mediaheight*0.08),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Colors.black12)
-      ),
-      child: Row(
+        Column(
         children: [
-          Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top:20, right: 13),
-              child: SkeletonLine(
-                style: SkeletonLineStyle(
-                  width: mediawidth*0.3,
-                  height: 15,
-                  borderRadius: BorderRadius.circular(8)
-                ),
-              ),
+        Padding(
+          padding:  EdgeInsets.only(top:mediaheight*0.08, left: 35),
+          child: SkeletonLine(
+            style: SkeletonLineStyle(
+              height: 24,
+              width: mediawidth*0.3,
+              borderRadius: BorderRadius.circular(12),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top:10, left: 20),
-              child: Row(
-               children: [ 
-                 SkeletonAvatar(  
-                 style: SkeletonAvatarStyle(
-                  shape: BoxShape.rectangle,
-                  width: mediawidth*0.42,
-                  height: mediaheight*0.1,
-                  borderRadius: BorderRadius.circular(8),
-                  )
-                ),
-               ]
-              ),
-            ),
-          ],
+          ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 20),
-          child: SkeletonAvatar(  
-            style: SkeletonAvatarStyle(
-            shape: BoxShape.circle,
-            width: mediawidth*0.35,
-            height: mediaheight*0.15,
-            )
+          padding: const EdgeInsets.only( top: 10, left: 35),
+          child: SkeletonLine(
+            style: SkeletonLineStyle(
+              height: 20,
+              width: mediawidth*0.5,
+              borderRadius: BorderRadius.circular(12),
+            ),
           ),
+        ),
+
+        Padding(
+          padding: EdgeInsets.only(top:mediaheight*0.04),
+          child: SkeletonAvatar(
+            style: SkeletonAvatarStyle(
+                width: mediawidth*0.83,
+                height: mediaheight*0.2,
+                borderRadius: BorderRadius.circular(40),
+            ),
+          ),
+        ),
+
+        Padding(
+          padding: EdgeInsets.only(top:mediaheight*0.06, left: 35),
+          child: SkeletonLine(
+            style: SkeletonLineStyle(
+              height: 20,
+              width: mediawidth*0.4,
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+        ),
+        
+        Padding(
+          padding: const EdgeInsets.only(left:35, right: 35),
+          child: Row(
+            mainAxisAlignment:MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top:mediaheight*0.03),
+                    child: SkeletonAvatar(
+                      style: SkeletonAvatarStyle(
+                        width: mediawidth*0.15,
+                        height: mediaheight*0.075,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top:mediaheight*0.01),
+                    child: SkeletonLine(
+                      style: SkeletonLineStyle(
+                        height: 12,
+                        width: mediawidth*0.15,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                  ),
+                ]
+              ),
+
+              Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top:mediaheight*0.03),
+                    child: SkeletonAvatar(
+                      style: SkeletonAvatarStyle(
+                        width: mediawidth*0.15,
+                        height: mediaheight*0.075,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top:mediaheight*0.01),
+                    child: SkeletonLine(
+                      style: SkeletonLineStyle(
+                        height: 12,
+                        width: mediawidth*0.15,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                  ),
+                ]
+              ),
+
+              Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top:mediaheight*0.03),
+                    child: SkeletonAvatar(
+                      style: SkeletonAvatarStyle(
+                        width: mediawidth*0.15,
+                        height: mediaheight*0.075,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top:mediaheight*0.01),
+                    child: SkeletonLine(
+                      style: SkeletonLineStyle(
+                        height: 12,
+                        width: mediawidth*0.15,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                  ),
+                ]
+              ),
+
+              Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top:mediaheight*0.03),
+                    child: SkeletonAvatar(
+                      style: SkeletonAvatarStyle(
+                        width: mediawidth*0.15,
+                        height: mediaheight*0.075,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top:mediaheight*0.01),
+                    child: SkeletonLine(
+                      style: SkeletonLineStyle(
+                        height: 12,
+                        width: mediawidth*0.15,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                  ),
+                ]
+              ),
+            ],
+          ),
+        ),
+        
+      ]
+      ),
+      
+      Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [  
+        Padding(
+          padding: EdgeInsets.only(bottom:mediaheight*0.03),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: Container(
+                margin: EdgeInsets.only(top: mediaheight*0.08),
+                height: mediaheight*0.07,
+                width : mediawidth*0.7,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25),
+                  color: Colors.white,
+                  border: Border.all(color: Colors.black12),
+                  boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.3),
+                    spreadRadius: 1,
+                    blurRadius: 2,
+                    offset: const Offset(0, 3), // changes position of shadow
+                  ),
+                  ],
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 10 , left: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: const [
+                      SkeletonAvatar(
+                        style: SkeletonAvatarStyle(
+                          shape: BoxShape.circle,
+                          width: 20,
+                          height: 20,
+                        ),
+                      ),
+                      SkeletonAvatar(
+                        style: SkeletonAvatarStyle(
+                          shape: BoxShape.circle,
+                          width: 20,
+                          height: 20,
+                        ),
+                      ),
+                      SkeletonAvatar(
+                        style: SkeletonAvatarStyle(
+                          shape: BoxShape.circle,
+                          width: 20,
+                          height: 20,
+                        ),
+                      ),
+                      SkeletonAvatar(
+                        style: SkeletonAvatarStyle(
+                          shape: BoxShape.circle,
+                          width: 20,
+                          height: 20,
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ),
+            )
+          ],
+            ),
         ),
         ]
-      ),
-        
-    ),
-
-    Column(
-      children: [
-        Row(
-          children: [
-            Container(
-              margin: EdgeInsets.only(left: 18, top: mediaheight*0.1 ),
-              width: mediawidth*0.4,
-              height: mediaheight*0.2,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.black12),
-              ),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15),
-                    child: SkeletonAvatar(
-                      style: SkeletonAvatarStyle(
-                        width: mediawidth*0.27,
-                        height: mediaheight*0.13,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10, left: 17 ),
-                    child: SkeletonLine(
-                      style: SkeletonLineStyle(
-                        width: mediawidth*0.3,
-                        height: 15,
-                        borderRadius: BorderRadius.circular(8)
-                      ),
-                    ),
-                  ),
-                ],
-              )
-            ),
-
-            Container(
-              margin: EdgeInsets.only(left: 35, top: mediaheight*0.1 ),
-              width: mediawidth*0.4,
-              height: mediaheight*0.2,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.black12),
-              ),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15),
-                    child: SkeletonAvatar(
-                      style: SkeletonAvatarStyle(
-                        width: mediawidth*0.27,
-                        height: mediaheight*0.13,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10, left: 17 ),
-                    child: SkeletonLine(
-                      style: SkeletonLineStyle(
-                        width: mediawidth*0.3,
-                        height: 15,
-                        borderRadius: BorderRadius.circular(8)
-                      ),
-                    ),
-                  ),
-                ],
-              )
-            ),
-          ],
-        ),
-
-         Row(
-          children: [
-            Container(
-              margin: EdgeInsets.only(left: 18, top: mediaheight*0.05 ),
-              width: mediawidth*0.4,
-              height: mediaheight*0.2,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.black12),
-              ),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15),
-                    child: SkeletonAvatar(
-                      style: SkeletonAvatarStyle(
-                        width: mediawidth*0.27,
-                        height: mediaheight*0.13,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10, left: 17 ),
-                    child: SkeletonLine(
-                      style: SkeletonLineStyle(
-                        width: mediawidth*0.3,
-                        height: 15,
-                        borderRadius: BorderRadius.circular(8)
-                      ),
-                    ),
-                  ),
-                ],
-              )
-            ),
-
-            Container(
-              margin: EdgeInsets.only(left: 35, top: mediaheight*0.05 ),
-              width: mediawidth*0.4,
-              height: mediaheight*0.2,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.black12),
-              ),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15),
-                    child: SkeletonAvatar(
-                      style: SkeletonAvatarStyle(
-                        width: mediawidth*0.27,
-                        height: mediaheight*0.13,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10, left: 17 ),
-                    child: SkeletonLine(
-                      style: SkeletonLineStyle(
-                        width: mediawidth*0.3,
-                        height: 15,
-                        borderRadius: BorderRadius.circular(8)
-                      ),
-                    ),
-                  ),
-                ],
-              )
-            ),
-          ],
-        ),
-
-        Center(
-          child: Container(
-            margin: EdgeInsets.only(top: mediaheight*0.08),
-            height: mediaheight*0.06,
-            width : mediawidth*0.7,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
-              color: Colors.white,
-              border: Border.all(color: Colors.black12),
-              boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.3),
-                spreadRadius: 1,
-                blurRadius: 2,
-                offset: const Offset(0, 3), // changes position of shadow
-              ),
-              ],
-            ),
-            child: Padding(
-              padding: const EdgeInsets.only(right: 10 , left: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
-                  SkeletonAvatar(
-                    style: SkeletonAvatarStyle(
-                      shape: BoxShape.circle,
-                      width: 20,
-                      height: 20,
-                    ),
-                  ),
-                  SkeletonAvatar(
-                    style: SkeletonAvatarStyle(
-                      shape: BoxShape.circle,
-                      width: 20,
-                      height: 20,
-                    ),
-                  ),
-                  SkeletonAvatar(
-                    style: SkeletonAvatarStyle(
-                      shape: BoxShape.circle,
-                      width: 20,
-                      height: 20,
-                    ),
-                  ),
-                  SkeletonAvatar(
-                    style: SkeletonAvatarStyle(
-                      shape: BoxShape.circle,
-                      width: 20,
-                      height: 20,
-                    ),
-                  ),
-                ],
-              ),
-            )
-          ),
-        )
-      ],
-    )
-
+      )
     ]
   );
    
