@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:perawat_app/LoginRegister/login.dart';
 import 'package:perawat_app/LoginRegister/register.dart';
 
@@ -13,109 +15,127 @@ class Landing extends StatelessWidget {
 
     return MaterialApp(
     home: Scaffold(   
-      backgroundColor: Colors.white,
-      body:  Center(
-          child: Column(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 40),
-                  child: Image(
-                    image: const AssetImage('assets/LogoLanding.png'),
-                    width: mediawidth * 0.85,
-                    height: mediaheight * 0.6,
-                    ),
+      backgroundColor: Colors.yellow[200],
+      body:  ListView(
+        children: <Widget> [
+        Column(
+        children: [ 
+          Center(
+            child: Padding(
+              padding: EdgeInsets.only(top: mediaheight*0.15),
+              child: Text(
+                  'Perawat',
+                  style: GoogleFonts.montserrat(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500, 
+                    fontSize: 32,
+                  ), 
                 ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(top: 10),
-                width: mediawidth * 0.85,
-                height: mediaheight * 0.04,
-                alignment: Alignment.centerLeft,
-                child: const Text('Hanya Untukmu',
-                  style: TextStyle(
-                    color: Colors.black26, 
-                    fontWeight: FontWeight.bold, 
-                    fontSize: 16, ),
-                ),
-              ),
-              Container(
-                width: mediawidth * 0.85,
-                height: mediaheight * 0.15,
-                margin: const EdgeInsets.only(top: 10),
-                alignment: Alignment.centerLeft,
-                child: RichText(
-                  text: const TextSpan(
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold, 
-                      fontSize: 32, ),
-                      text: 'Kami siap membantu anda untuk urusan keperawatan.\n'
-                  ),
-                  ),
-              ),
-              Container(
-                width: mediawidth * 0.85,
-                height: mediaheight * 0.1,
-                margin: const EdgeInsets.only(top: 10),
-                alignment: Alignment.centerLeft,
-                child: Row(  
-                  children: [
-                    Padding(
-                      padding:  EdgeInsets.only(left: mediawidth*0.05,),
-                      child: ElevatedButton(
-                        onPressed: () {
-                           Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const Register() ),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          primary: const Color(0xFFffea66),
-                          minimumSize:  Size(mediawidth*0.35, mediaheight*0.05),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                        child: const Text("Daftar",
-                          style: TextStyle(
-                            color: Colors.black, 
-                            fontWeight: FontWeight.bold, 
-                            fontSize: 16, ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:  EdgeInsets.only(left: mediawidth*0.05,),
-                      child: ElevatedButton(
-                        onPressed: () {
-
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const Login() ),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          primary: const Color(0xFFffea66),
-                          minimumSize: Size(mediawidth*0.35, mediaheight*0.05),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                        child: const Text("Masuk",
-                          style: TextStyle(
-                                color: Colors.black, 
-                                fontWeight: FontWeight.bold, 
-                                fontSize: 16, ),
-                         ),
-                        ),
-                    ),
-                  ],
-                ),
-              ),
-           
-            ],
+            ),
           ),
+      
+           Center(
+            child: Text(
+                'Cukup Dirumah Saja!!',
+                style: GoogleFonts.montserrat(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w200, 
+                  fontSize: 20,
+                ), 
+              ),
+          ),
+      
+          const Center(
+            child:  Padding(
+              padding:  EdgeInsets.only(top:20),
+              child:  Expanded(
+                child: Image(
+                    image: AssetImage('assets/mascot.png'),
+                  ),
+              ),
+              ),
+            ),
+      
+            GestureDetector(
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Login() ),
+                );
+              },
+              child: Container(
+                margin: const EdgeInsets.only(top:35),
+                width: mediawidth*0.7,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15)
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.verified_user_sharp,
+                      color: Colors.teal[400],
+                    ),
+              
+                    Padding(
+                      padding: const EdgeInsets.only(left:10),
+                      child: Text(
+                        'Masuk',
+                          style: GoogleFonts.karla(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400, 
+                          fontSize: 24,
+                        ), 
+                   ),
+                    )
+                  ]
+                ),
+              ),
+            ),
+      
+            GestureDetector(
+              onTap: (){
+                 Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Register() ),
+                );  
+              },
+              child: Container(
+                margin: const EdgeInsets.only(top:15),
+                width: mediawidth*0.7,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(15)
+                ),
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.email,
+                    color: Colors.pink[200],
+                  ),
+              
+                  Padding(
+                    padding: const EdgeInsets.only(left:10),
+                    child: Text(
+                      'Daftar',
+                        style: GoogleFonts.karla(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w200, 
+                        fontSize: 24,
+                      ), 
+                  ),
+                  )
+                ]
+              ),
+              ),
+            )
+        ]
+          ),
+      ]
       ),
       
       )
