@@ -269,7 +269,7 @@ class _Register extends State<Register> {
       height: mediaheight,
       color: Colors.black87,
       child: Lottie.asset(
-        'assets/paperplane.json'
+        'assets/preloader-icon.json'
       ),
     ),
   )

@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -206,7 +205,7 @@ class _Login extends State<Login> {
                             pesanerror = 'Request Timeout.';
                             pesantampil = true;
                         });
-
+    
                       }
                   } else {
                     setState(() {
@@ -266,7 +265,7 @@ class _Login extends State<Login> {
       height: mediaheight,
       color: Colors.black87,
       child: Lottie.asset(
-        'assets/paperplane.json'
+        'assets/preloader-icon.json'
       ),
     ),
   )

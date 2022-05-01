@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 import 'package:perawat_app/LoginRegister/login.dart';
 import 'package:perawat_app/LoginRegister/register.dart';
 
 
-class Landing extends StatelessWidget {
+  void navarchange(){
+    
+     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      systemNavigationBarColor: Colors.yellow[200],
+    ));
+
+  }
+
+  class Landing extends StatelessWidget {
   const Landing({Key? key}) : super(key: key);
 
   @override
@@ -15,6 +23,7 @@ class Landing extends StatelessWidget {
 
     return MaterialApp(
     home: Scaffold(   
+      
       backgroundColor: Colors.yellow[200],
       body:  ListView(
         children: <Widget> [
@@ -47,11 +56,9 @@ class Landing extends StatelessWidget {
       
           const Center(
             child:  Padding(
-              padding:  EdgeInsets.only(top:20),
-              child:  Expanded(
-                child: Image(
-                    image: AssetImage('assets/mascot.png'),
-                  ),
+              padding:   EdgeInsets.only(top:20),
+              child:  Image(
+                image: AssetImage('assets/mascot.png'),
               ),
               ),
             ),
@@ -141,4 +148,6 @@ class Landing extends StatelessWidget {
       )
       );
   }
+  
+ 
 }
