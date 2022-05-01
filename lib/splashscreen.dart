@@ -30,7 +30,7 @@ class _Splash extends State<Splash> {
   }
 
   route() {
-    if(_auth.currentUser != null){
+    if( _auth.currentUser != null){
       Navigator.pushReplacement(context, MaterialPageRoute(
       builder: (context) => const HomePage()
       ));
@@ -44,7 +44,7 @@ class _Splash extends State<Splash> {
   @override
   Widget build(BuildContext context) {
 
-    return  const MaterialApp(
+    return const MaterialApp(
     home: Scaffold(
       backgroundColor: Colors.white,
       body: Center(
