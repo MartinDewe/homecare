@@ -1,6 +1,6 @@
 # perawat_app
 
-Project Tugas Akhir Perkuliahaan.
+Project Tugas Akhir Perkuliahaan.( Berbasis Android )
 
 Project ini dibuat dengan Flutter ( Asal Coding) Sekaligus Belajar dengan tanpa :
 - State Manajement ( BloC / GetX )
