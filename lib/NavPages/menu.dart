@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
-
 class MainMenu extends StatefulWidget {
   const MainMenu({Key? key}) : super(key: key);
 
@@ -98,167 +97,159 @@ class _MainMenu extends State<MainMenu> {
           ),
 
           Padding(
-            padding: const EdgeInsets.only(left:35, right: 35),
+            padding: EdgeInsets.only(left:mediawidth*0.1, right: mediawidth*0.1, top:mediaheight*0.03),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Padding(
-                  padding: EdgeInsets.only(top:mediaheight*0.03),
-                  child: GestureDetector(
-                    onTap: (){
+                //Start Content
+                GestureDetector(
+                  onTap: (){
 
-                    },
-                    child: Column(
-                      children: [
-                        Container(
-                        width: mediawidth*0.15,
-                        height: mediaheight*0.075,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.yellow[100],
-                          border: Border.all(color: Colors.yellow.shade200)      
-                        ),
-                        child: const Padding(
-                          padding:  EdgeInsets.all(10.0),
-                          child:  Image(
-                            image: AssetImage('assets/coronavirus.png'),
-                          ),
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                      width: mediawidth*0.15,
+                      height: mediaheight*0.075,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: Colors.yellow[100],
+                        border: Border.all(color: Colors.yellow.shade200)      
+                      ),
+                      child: const Padding(
+                        padding:  EdgeInsets.all(10.0),
+                        child:  Image(
+                          image: AssetImage('assets/coronavirus.png'),
                         ),
                       ),
-                       Padding(
-                        padding: EdgeInsets.only(top:mediaheight*0.01),
-                        child: Text(
-                          'Covid-19',
-                          style: GoogleFonts.poppins(
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal, 
-                              fontSize: 12,
-                          ), 
-                        ),
-                      ),
-                      ]
                     ),
+                     Padding(
+                      padding: EdgeInsets.only(top:mediaheight*0.01),
+                      child: Text(
+                        'Covid-19',
+                        style: GoogleFonts.poppins(
+                            color: Colors.black,
+                            fontWeight: FontWeight.normal, 
+                            fontSize: 12,
+                        ), 
+                      ),
+                    ),
+                    ]
                   ),
                 ),
 
                 //break Line 1
-                Padding(
-                  padding: EdgeInsets.only(top:mediaheight*0.03),
-                  child: GestureDetector(
-                    onTap: (){
+                GestureDetector(
+                  onTap: (){
 
-                    },
-                    child: Column(
-                      children: [
-                        Container(
-                        width: mediawidth*0.15,
-                        height: mediaheight*0.075,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.yellow[100],
-                          border: Border.all(color: Colors.yellow.shade200)      
-                        ),
-                        child: const Padding(
-                          padding:  EdgeInsets.all(10.0),
-                          child:  Image(
-                            image: AssetImage('assets/infus-icon.png'),
-                          ),
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                      width: mediawidth*0.15,
+                      height: mediaheight*0.075,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: Colors.yellow[100],
+                        border: Border.all(color: Colors.yellow.shade200)      
+                      ),
+                      child: const Padding(
+                        padding:  EdgeInsets.all(10.0),
+                        child:  Image(
+                          image: AssetImage('assets/infus-icon.png'),
                         ),
                       ),
-                       Padding(
-                        padding: EdgeInsets.only(top:mediaheight*0.01),
-                        child: Text(
-                          'Infus',
-                          style: GoogleFonts.poppins(
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal, 
-                              fontSize: 12,
-                          ), 
-                        ),
-                      ),
-                      ]
                     ),
+                     Padding(
+                      padding: EdgeInsets.only(top:mediaheight*0.01),
+                      child: Text(
+                        'Infus',
+                        style: GoogleFonts.poppins(
+                            color: Colors.black,
+                            fontWeight: FontWeight.normal, 
+                            fontSize: 12,
+                        ), 
+                      ),
+                    ),
+                    ]
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top:mediaheight*0.03),
-                  child: GestureDetector(
-                    onTap: (){
 
-                    },
-                    child: Column(
-                      children: [
-                        Container(
-                        width: mediawidth*0.15,
-                        height: mediaheight*0.075,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.yellow[100],
-                          border: Border.all(color: Colors.yellow.shade200)      
-                        ),
-                        child: const Padding(
-                          padding:  EdgeInsets.all(10.0),
-                          child:  Image(
-                            image: AssetImage('assets/syringe.png'),
-                          ),
+                //break line 2
+                GestureDetector(
+                  onTap: (){
+
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                      width: mediawidth*0.15,
+                      height: mediaheight*0.075,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: Colors.yellow[100],
+                        border: Border.all(color: Colors.yellow.shade200)      
+                      ),
+                      child: const Padding(
+                        padding:  EdgeInsets.all(10.0),
+                        child:  Image(
+                          image: AssetImage('assets/syringe.png'),
                         ),
                       ),
-                       Padding(
-                        padding: EdgeInsets.only(top:mediaheight*0.01),
-                        child: Text(
-                          'Injeksi',
-                          style: GoogleFonts.poppins(
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal, 
-                              fontSize: 12,
-                          ), 
-                        ),
-                      ),
-                      ]
                     ),
+                     Padding(
+                      padding: EdgeInsets.only(top:mediaheight*0.01),
+                      child: Text(
+                        'Injeksi',
+                        style: GoogleFonts.poppins(
+                            color: Colors.black,
+                            fontWeight: FontWeight.normal, 
+                            fontSize: 12,
+                        ), 
+                      ),
+                    ),
+                    ]
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top:mediaheight*0.03),
-                  child: GestureDetector(
-                    onTap: (){
-                     
-                    },
-                    child: Column(
-                      children: [
-                        Container(
-                        width: mediawidth*0.15,
-                        height: mediaheight*0.075,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.yellow[100],
-                          border: Border.all(color: Colors.yellow.shade200)      
-                        ),
-                        child: const Padding(
-                          padding:  EdgeInsets.all(10.0),
-                          child:  Image(
-                            image: AssetImage('assets/other.png'),
-                          ),
+
+                //break line 3
+                GestureDetector(
+                  onTap: (){
+                    _bottomsheet();
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                      width: mediawidth*0.15,
+                      height: mediaheight*0.075,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: Colors.yellow[100],
+                        border: Border.all(color: Colors.yellow.shade200)      
+                      ),
+                      child: const Padding(
+                        padding:  EdgeInsets.all(10.0),
+                        child:  Image(
+                          image: AssetImage('assets/other.png'),
                         ),
                       ),
-                       Padding(
-                        padding: EdgeInsets.only(top:mediaheight*0.01),
-                        child: Text(
-                          'Lainnya',
-                          style: GoogleFonts.poppins(
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal, 
-                              fontSize: 12,
-                          ), 
-                        ),
-                      ),
-                      ]
                     ),
+                     Padding(
+                      padding: EdgeInsets.only(top:mediaheight*0.01),
+                      child: Text(
+                        'Lainnya',
+                        style: GoogleFonts.poppins(
+                            color: Colors.black,
+                            fontWeight: FontWeight.normal, 
+                            fontSize: 12,
+                        ), 
+                      ),
+                    ),
+                    
+                    ]
                   ),
                 ),
-                
-                
-                
+                 
               ], //deadline
             ),
           )
@@ -276,6 +267,209 @@ class _MainMenu extends State<MainMenu> {
 
     ]
   );
+}
+
+void _bottomsheet(){
+  
+  final mediawidth = MediaQuery.of(context).size.width;
+  final mediaheight = MediaQuery.of(context).size.height;
+
+  showModalBottomSheet(
+    context: context, 
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(
+        top: Radius.circular(20),
+      ),
+    ),
+    builder: (builder){
+    return Container(
+      height: mediaheight*0.6,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20.0),
+          topRight:  Radius.circular(20.0)
+        ),
+        color: Colors.white,    
+      ),
+      child:  Padding(
+        // Start Content
+        padding: EdgeInsets.only(left:mediawidth*0.1, right: mediawidth*0.1, top:mediaheight*0.04),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            GestureDetector(
+              onTap: (){
+
+              },
+              child: Column(
+                children: [
+                  Container(
+                  width: mediawidth*0.15,
+                  height: mediaheight*0.075,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.yellow[100],
+                    border: Border.all(color: Colors.yellow.shade200)      
+                  ),
+                  child: const Padding(
+                    padding:  EdgeInsets.all(10.0),
+                    child:  Image(
+                      image: AssetImage('assets/coronavirus.png'),
+                    ),
+                  ),
+                ),
+                  Padding(
+                  padding: EdgeInsets.only(top:mediaheight*0.01),
+                  child: Text(
+                    'Covid-19',
+                    style: GoogleFonts.poppins(
+                        color: Colors.black,
+                        fontWeight: FontWeight.normal, 
+                        fontSize: 12,
+                    ), 
+                  ),
+                ),
+                ]
+              ),
+            ),
+
+            //break Line 1
+            GestureDetector(
+              onTap: (){
+
+              },
+              child: Column(
+                children: [
+                  Container(
+                  width: mediawidth*0.15,
+                  height: mediaheight*0.075,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.yellow[100],
+                    border: Border.all(color: Colors.yellow.shade200)      
+                  ),
+                  child: const Padding(
+                    padding:  EdgeInsets.all(10.0),
+                    child:  Image(
+                      image: AssetImage('assets/infus-icon.png'),
+                    ),
+                  ),
+                ),
+                  Padding(
+                  padding: EdgeInsets.only(top:mediaheight*0.01),
+                  child: Text(
+                    'Infus',
+                    style: GoogleFonts.poppins(
+                        color: Colors.black,
+                        fontWeight: FontWeight.normal, 
+                        fontSize: 12,
+                    ), 
+                  ),
+                ),
+                ]
+              ),
+            ),
+
+            //break Line 2
+
+            GestureDetector(
+              onTap: (){
+
+              },
+              child: Column(
+                children: [
+                  Container(
+                  width: mediawidth*0.15,
+                  height: mediaheight*0.075,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.yellow[100],
+                    border: Border.all(color: Colors.yellow.shade200)      
+                  ),
+                  child: const Padding(
+                    padding:  EdgeInsets.all(10.0),
+                    child:  Image(
+                      image: AssetImage('assets/syringe.png'),
+                    ),
+                  ),
+                ),
+                  Padding(
+                  padding: EdgeInsets.only(top:mediaheight*0.01),
+                  child: Text(
+                    'Injeksi',
+                    style: GoogleFonts.poppins(
+                        color: Colors.black,
+                        fontWeight: FontWeight.normal, 
+                        fontSize: 12,
+                    ), 
+                  ),
+                ),
+                ]
+              ),
+            ),
+
+            //break Line 3
+            GestureDetector(
+              onTap: (){
+
+              },
+              child: Column(
+                children: [
+                  Container(
+                  width: mediawidth*0.15,
+                  height: mediaheight*0.075,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.yellow[100],
+                    border: Border.all(color: Colors.yellow.shade200)      
+                  ),
+                  child: const Padding(
+                    padding:  EdgeInsets.all(10.0),
+                    child:  Image(
+                      image: AssetImage('assets/apple.png'),
+                    ),
+                  ),
+                ),
+                  Padding(
+                  padding: EdgeInsets.only(top:mediaheight*0.01),
+                  child: Column(
+                    children: [
+                      Text(
+                      'Konsultasi',
+                      style: GoogleFonts.poppins(
+                        color: Colors.black,
+                        fontWeight: FontWeight.normal, 
+                        fontSize: 11,
+                        ), 
+                      ),
+                      Text(
+                      'Gizi',
+                      style: GoogleFonts.poppins(
+                        color: Colors.black,
+                        fontWeight: FontWeight.normal, 
+                        fontSize: 11,
+                        ), 
+                      ),
+                  ]
+                  ),
+                ),
+                ]
+              ),
+            ),
+            
+            //deadline  
+          ], 
+        ),
+      ),
+
+      // END Content
+
+    );
+    }
+    
+  );
+                     
+
 }
 
 }
