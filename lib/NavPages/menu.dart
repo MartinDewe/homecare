@@ -291,175 +291,364 @@ void _bottomsheet(){
         ),
         color: Colors.white,    
       ),
-      child:  Padding(
-        // Start Content
-        padding: EdgeInsets.only(left:mediawidth*0.1, right: mediawidth*0.1, top:mediaheight*0.04),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            GestureDetector(
-              onTap: (){
-
-              },
-              child: Column(
-                children: [
-                  Container(
-                  width: mediawidth*0.15,
-                  height: mediaheight*0.075,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.yellow[100],
-                    border: Border.all(color: Colors.yellow.shade200)      
-                  ),
-                  child: const Padding(
-                    padding:  EdgeInsets.all(10.0),
-                    child:  Image(
-                      image: AssetImage('assets/coronavirus.png'),
+      child:  Stack(
+        children: [
+          Padding(
+          // Start Content
+          padding: EdgeInsets.only(left:mediawidth*0.1, right: mediawidth*0.1, top:mediaheight*0.04),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: (){
+      
+                },
+                child: Column(
+                  children: [
+                    Container(
+                    width: mediawidth*0.15,
+                    height: mediaheight*0.075,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.yellow[100],
+                      border: Border.all(color: Colors.yellow.shade200)      
                     ),
-                  ),
-                ),
-                  Padding(
-                  padding: EdgeInsets.only(top:mediaheight*0.01),
-                  child: Text(
-                    'Covid-19',
-                    style: GoogleFonts.poppins(
-                        color: Colors.black,
-                        fontWeight: FontWeight.normal, 
-                        fontSize: 12,
-                    ), 
-                  ),
-                ),
-                ]
-              ),
-            ),
-
-            //break Line 1
-            GestureDetector(
-              onTap: (){
-
-              },
-              child: Column(
-                children: [
-                  Container(
-                  width: mediawidth*0.15,
-                  height: mediaheight*0.075,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.yellow[100],
-                    border: Border.all(color: Colors.yellow.shade200)      
-                  ),
-                  child: const Padding(
-                    padding:  EdgeInsets.all(10.0),
-                    child:  Image(
-                      image: AssetImage('assets/infus-icon.png'),
-                    ),
-                  ),
-                ),
-                  Padding(
-                  padding: EdgeInsets.only(top:mediaheight*0.01),
-                  child: Text(
-                    'Infus',
-                    style: GoogleFonts.poppins(
-                        color: Colors.black,
-                        fontWeight: FontWeight.normal, 
-                        fontSize: 12,
-                    ), 
-                  ),
-                ),
-                ]
-              ),
-            ),
-
-            //break Line 2
-
-            GestureDetector(
-              onTap: (){
-
-              },
-              child: Column(
-                children: [
-                  Container(
-                  width: mediawidth*0.15,
-                  height: mediaheight*0.075,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.yellow[100],
-                    border: Border.all(color: Colors.yellow.shade200)      
-                  ),
-                  child: const Padding(
-                    padding:  EdgeInsets.all(10.0),
-                    child:  Image(
-                      image: AssetImage('assets/syringe.png'),
-                    ),
-                  ),
-                ),
-                  Padding(
-                  padding: EdgeInsets.only(top:mediaheight*0.01),
-                  child: Text(
-                    'Injeksi',
-                    style: GoogleFonts.poppins(
-                        color: Colors.black,
-                        fontWeight: FontWeight.normal, 
-                        fontSize: 12,
-                    ), 
-                  ),
-                ),
-                ]
-              ),
-            ),
-
-            //break Line 3
-            GestureDetector(
-              onTap: (){
-
-              },
-              child: Column(
-                children: [
-                  Container(
-                  width: mediawidth*0.15,
-                  height: mediaheight*0.075,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.yellow[100],
-                    border: Border.all(color: Colors.yellow.shade200)      
-                  ),
-                  child: const Padding(
-                    padding:  EdgeInsets.all(10.0),
-                    child:  Image(
-                      image: AssetImage('assets/apple.png'),
-                    ),
-                  ),
-                ),
-                  Padding(
-                  padding: EdgeInsets.only(top:mediaheight*0.01),
-                  child: Column(
-                    children: [
-                      Text(
-                      'Konsultasi',
-                      style: GoogleFonts.poppins(
-                        color: Colors.black,
-                        fontWeight: FontWeight.normal, 
-                        fontSize: 11,
-                        ), 
+                    child: const Padding(
+                      padding:  EdgeInsets.all(10.0),
+                      child:  Image(
+                        image: AssetImage('assets/coronavirus.png'),
                       ),
-                      Text(
-                      'Gizi',
+                    ),
+                  ),
+                    Padding(
+                    padding: EdgeInsets.only(top:mediaheight*0.01),
+                    child: Text(
+                      'Covid-19',
                       style: GoogleFonts.poppins(
-                        color: Colors.black,
-                        fontWeight: FontWeight.normal, 
-                        fontSize: 11,
-                        ), 
-                      ),
+                          color: Colors.black,
+                          fontWeight: FontWeight.normal, 
+                          fontSize: 12,
+                      ), 
+                    ),
+                  ),
                   ]
-                  ),
                 ),
-                ]
               ),
-            ),
-            
-            //deadline  
-          ], 
+      
+              //break Line 1
+              GestureDetector(
+                onTap: (){
+      
+                },
+                child: Column(
+                  children: [
+                    Container(
+                    width: mediawidth*0.15,
+                    height: mediaheight*0.075,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.yellow[100],
+                      border: Border.all(color: Colors.yellow.shade200)      
+                    ),
+                    child: const Padding(
+                      padding:  EdgeInsets.all(10.0),
+                      child:  Image(
+                        image: AssetImage('assets/infus-icon.png'),
+                      ),
+                    ),
+                  ),
+                    Padding(
+                    padding: EdgeInsets.only(top:mediaheight*0.01),
+                    child: Text(
+                      'Infus',
+                      style: GoogleFonts.poppins(
+                          color: Colors.black,
+                          fontWeight: FontWeight.normal, 
+                          fontSize: 12,
+                      ), 
+                    ),
+                  ),
+                  ]
+                ),
+              ),
+      
+              //break Line 2
+      
+              GestureDetector(
+                onTap: (){
+      
+                },
+                child: Column(
+                  children: [
+                    Container(
+                    width: mediawidth*0.15,
+                    height: mediaheight*0.075,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.yellow[100],
+                      border: Border.all(color: Colors.yellow.shade200)      
+                    ),
+                    child: const Padding(
+                      padding:  EdgeInsets.all(10.0),
+                      child:  Image(
+                        image: AssetImage('assets/syringe.png'),
+                      ),
+                    ),
+                  ),
+                    Padding(
+                    padding: EdgeInsets.only(top:mediaheight*0.01),
+                    child: Text(
+                      'Injeksi',
+                      style: GoogleFonts.poppins(
+                          color: Colors.black,
+                          fontWeight: FontWeight.normal, 
+                          fontSize: 12,
+                      ), 
+                    ),
+                  ),
+                  ]
+                ),
+              ),
+      
+              //break Line 3
+              GestureDetector(
+                onTap: (){
+      
+                },
+                child: Column(
+                  children: [
+                    Container(
+                    width: mediawidth*0.15,
+                    height: mediaheight*0.075,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.yellow[100],
+                      border: Border.all(color: Colors.yellow.shade200)      
+                    ),
+                    child: const Padding(
+                      padding:  EdgeInsets.all(10.0),
+                      child:  Image(
+                        image: AssetImage('assets/apple.png'),
+                      ),
+                    ),
+                  ),
+                    Padding(
+                    padding: EdgeInsets.only(top:mediaheight*0.01),
+                    child: Column(
+                      children: [
+                        Text(
+                        'Konsultasi',
+                        style: GoogleFonts.poppins(
+                          color: Colors.black,
+                          fontWeight: FontWeight.normal, 
+                          fontSize: 11,
+                          ), 
+                        ),
+                        Text(
+                        'Gizi',
+                        style: GoogleFonts.poppins(
+                          color: Colors.black,
+                          fontWeight: FontWeight.normal, 
+                          fontSize: 11,
+                          ), 
+                        ),
+                    ]
+                    ),
+                  ),
+                  ]
+                ),
+              ),
+              
+              //deadline  
+            ], 
+          ),
         ),
+
+        Padding(
+          // Start Content
+          padding: EdgeInsets.only(left:mediawidth*0.1, right: mediawidth*0.1, top:mediaheight*0.19),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: (){
+             
+                },
+                child: Column(
+                  children: [
+                    Container(
+                    width: mediawidth*0.15,
+                    height: mediaheight*0.075,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.yellow[100],
+                      border: Border.all(color: Colors.yellow.shade200)      
+                    ),
+                    child: const Padding(
+                      padding:  EdgeInsets.all(10.0),
+                      child:  Image(
+                        image: AssetImage('assets/injury.png'),
+                      ),
+                    ),
+                  ),
+                    Padding(
+                    padding: EdgeInsets.only(top:mediaheight*0.01),
+                    child: Column(
+                      children: [
+                        Text(
+                        'Control',
+                        style: GoogleFonts.poppins(
+                          color: Colors.black,
+                          fontWeight: FontWeight.normal, 
+                          fontSize: 11,
+                          ), 
+                        ),
+                        Text(
+                        'Luka',
+                        style: GoogleFonts.poppins(
+                          color: Colors.black,
+                          fontWeight: FontWeight.normal, 
+                          fontSize: 11,
+                          ), 
+                        ),
+                    ]
+                    ),
+                  ),
+                  ]
+                ),
+              ),
+      
+              //break Line 1
+              GestureDetector(
+                onTap: (){
+      
+                },
+                child: Column(
+                  children: [
+                    Container(
+                    width: mediawidth*0.15,
+                    height: mediaheight*0.075,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.yellow[100],
+                      border: Border.all(color: Colors.yellow.shade200)      
+                    ),
+                    child: const Padding(
+                      padding:  EdgeInsets.all(10.0),
+                      child:  Image(
+                        image: AssetImage('assets/scissors.png'),
+                      ),
+                    ),
+                  ),
+                    Padding(
+                    padding: EdgeInsets.only(top:mediaheight*0.01),
+                    child: Text(
+                      'Khitan',
+                      style: GoogleFonts.poppins(
+                          color: Colors.black,
+                          fontWeight: FontWeight.normal, 
+                          fontSize: 12,
+                      ), 
+                    ),
+                  ),
+                  ]
+                ),
+              ),
+      
+              //break Line 2
+      
+              GestureDetector(
+                onTap: (){
+      
+                },
+                child: Column(
+                  children: [
+                    Container(
+                    width: mediawidth*0.15,
+                    height: mediaheight*0.075,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.yellow[100],
+                      border: Border.all(color: Colors.yellow.shade200)      
+                    ),
+                    child: const Padding(
+                      padding:  EdgeInsets.all(10.0),
+                      child:  Image(
+                        image: AssetImage('assets/nurse.png'),
+                      ),
+                    ),
+                  ),
+                    Padding(
+                    padding: EdgeInsets.only(top:mediaheight*0.01),
+                    child: Column(
+                      children: [
+                        Text(
+                        'Jasa',
+                        style: GoogleFonts.poppins(
+                          color: Colors.black,
+                          fontWeight: FontWeight.normal, 
+                          fontSize: 11,
+                          ), 
+                        ),
+                        Text(
+                        'Perawat',
+                        style: GoogleFonts.poppins(
+                          color: Colors.black,
+                          fontWeight: FontWeight.normal, 
+                          fontSize: 11,
+                          ), 
+                        ),
+                    ]
+                    ),
+                  ),
+                  ]
+                ),
+              ),
+      
+              //break Line 3
+              GestureDetector(
+                onTap: (){
+      
+                },
+                child: Column(
+                  children: [
+                    Container(
+                    width: mediawidth*0.15,
+                    height: mediaheight*0.075,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.yellow[100],
+                      border: Border.all(color: Colors.yellow.shade200)      
+                    ),
+                    child: const Padding(
+                      padding:  EdgeInsets.all(10.0),
+                      child:  Image(
+                        image: AssetImage('assets/blood-test.png'),
+                      ),
+                    ),
+                  ),
+                    Padding(
+                    padding: EdgeInsets.only(top:mediaheight*0.01),
+                    child:
+                        Text(
+                        'Cek Darah',
+                        style: GoogleFonts.poppins(
+                          color: Colors.black,
+                          fontWeight: FontWeight.normal, 
+                          fontSize: 11,
+                          ), 
+                        ),
+                      
+                  ),
+                  ]
+                ),
+              ),
+              
+              //deadline  
+            ], 
+          ),
+        ),
+        ]
       ),
 
       // END Content
