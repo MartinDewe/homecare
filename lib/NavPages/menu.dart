@@ -26,7 +26,7 @@ class _MainMenu extends State<MainMenu> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-          padding: EdgeInsets.only(top:mediaheight*0.08, left: 35),
+          padding: EdgeInsets.only(top:mediaheight*0.08, left: mediawidth*0.0975),
           child: Text(
             'Hallo !',
              style: GoogleFonts.poppins(
@@ -37,7 +37,7 @@ class _MainMenu extends State<MainMenu> {
           )
           ),
           Padding(
-          padding: const EdgeInsets.only(left: 35),
+          padding: EdgeInsets.only(left: mediawidth*0.0975),
           child: Text(
             'Bagaimana Harimu ?',
              style: GoogleFonts.poppins(
@@ -57,7 +57,7 @@ class _MainMenu extends State<MainMenu> {
                 color: Colors.yellow[200]
               ),
               child: Container(
-                margin: EdgeInsets.only(top: mediaheight*0.04, left: 20),
+                margin: EdgeInsets.only(top: mediaheight*0.04, left: mediawidth*0.055),
                 alignment: Alignment.topLeft,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,7 +85,7 @@ class _MainMenu extends State<MainMenu> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top:mediaheight*0.06, left: 35),
+            padding: EdgeInsets.only(top:mediaheight*0.06, left: mediawidth*0.0975),
             child: Text(
               'Layanan Kami',
               style: GoogleFonts.poppins(
@@ -104,7 +104,7 @@ class _MainMenu extends State<MainMenu> {
                 //Start Content
                 GestureDetector(
                   onTap: (){
-
+                      
                   },
                   child: Column(
                     children: [

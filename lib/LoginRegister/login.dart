@@ -115,7 +115,7 @@ class _Login extends State<Login> {
                Row(
                 children: [
                Padding(
-                 padding: const EdgeInsets.only(left: 33, top:15),
+                 padding: EdgeInsets.only(left: mediawidth * 0.1, top:15),
                  child: Visibility(
                    visible: pesantampil,
                    child:  Text(

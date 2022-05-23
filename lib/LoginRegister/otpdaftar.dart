@@ -111,7 +111,7 @@ class _Otpsection extends State<Otpsection> {
                         final uid = users!.uid;
                         await FirebaseFirestore.instance.collection('users').doc(widget.phonenumber).set(
                         {
-                          'name': '',
+                          'name': widget.phonenumber,
                           'uid' : uid
                         }
                         );
