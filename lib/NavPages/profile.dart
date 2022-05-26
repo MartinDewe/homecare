@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:perawat_app/LoginRegister/logout.dart';
 
-FirebaseAuth _auth = FirebaseAuth.instance;
 
 final Stream<QuerySnapshot> users = 
   FirebaseFirestore.instance.collection('users').snapshots();
@@ -266,9 +265,8 @@ class _ProfileState extends State<Profile> {
               Center(
               child: GestureDetector(
               onTap: (){
-                Navigator.pushReplacement(context, MaterialPageRoute(
-                builder: (context) => const Logout()
-                ));
+                _bottomsheet();
+               
                 
               },
               child: Container(
@@ -339,5 +337,83 @@ class _ProfileState extends State<Profile> {
     return rank;
   }
 
+void _bottomsheet(){
+  
+  final mediawidth = MediaQuery.of(context).size.width;
+  final mediaheight = MediaQuery.of(context).size.height;
+
+  showModalBottomSheet(
+    context: context, 
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(
+        top: Radius.circular(20),
+      ),
+    ),
+    builder: (builder){
+    return Container(
+      height: mediaheight*0.4,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20.0),
+          topRight:  Radius.circular(20.0)
+        ),
+        color: Colors.white,    
+      ),
+      child:Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Padding(
+            padding:  EdgeInsets.only(top: mediaheight*0.03),
+            child: Text(
+              'Apakah Anda Yakin Mau Keluar ?',
+               style: GoogleFonts.poppins(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w400, 
+                  fontSize: 18,
+              ), 
+            ),
+          ),
+          Lottie.asset(
+            'assets/cat.json',
+            height: mediaheight*0.2
+            ),
+            Padding(
+              padding: EdgeInsets.only(bottom:mediaheight*0.02),
+              child: Material(
+                child: InkWell(
+                  onTap: (){
+                    Navigator.pushReplacement(context, MaterialPageRoute(
+                    builder: (context) => const Logout()
+                    ));
+                  },
+                  child: Ink(
+                    width: mediawidth*0.7,
+                    height: mediaheight*0.055,
+                    decoration: BoxDecoration(
+                      color: Colors.red[200],
+                      borderRadius: BorderRadius.circular(15)
+                    ),
+                    child: Center(
+                      child: Text(
+                          'Keluar',
+                            style: GoogleFonts.karla(
+                            color: Colors.white,
+                            fontSize: 18,
+                          ), 
+                   ),
+                    ),
+                  )
+                ),
+              ),
+            )
+        ],
+      )
+
+    );
+
+    }
+    
+  );
+}
 
 }

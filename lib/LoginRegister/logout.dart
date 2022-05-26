@@ -1,11 +1,24 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:perawat_app/LoginRegister/landing.dart';
 
+FirebaseAuth _auth = FirebaseAuth.instance;
 
-
-class Logout extends StatelessWidget {
+class Logout extends StatefulWidget {
   const Logout({Key? key}) : super(key: key);
+
+  @override
+  State<Logout> createState() => _LogoutState();
+}
+
+class _LogoutState extends State<Logout> {
+@override
+  void initState() {
+    super.initState();
+    startTimer();
+  }
 
   @override
   
@@ -36,7 +49,20 @@ class Logout extends StatelessWidget {
           ),
         ),
             ),
+            
       );
     
+    
+  }
+
+  startTimer() async {
+    Future.delayed(const Duration(seconds: 3) ,() {
+    _auth.signOut();
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => const Landing() ),
+      (Route<dynamic> route) => false
+    );
+  });
   }
 }
