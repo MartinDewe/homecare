@@ -1,18 +1,18 @@
-# perawat_app ( Berbasis Android )
+# Homecare_App ( Android Based )
 
-Project Tugas Akhir Perkuliahaan. 
+Homecare App for Collage Final Assigment.
 
-Project ini dibuat dengan Flutter ( Asal Coding) Sekaligus Belajar dengan tanpa :
+This Project is my first Flutter Project with mean i do learn by doing and not contain :
 - State Manajement ( BloC / GetX )
 - Routing
-- Arsitektur ( MVC / MVVM dll. )
+- Architecture Pattern ( MVC / MVVM dll. )
 
 Backend :
 - Cloud Firestore
-- Firestore Database
 - Firebase Authentication
 
-Project Pertama saya dari flutter, Next time akan mencoba menerapkan apa yang belum diterapkan diatas.
+Ps : The Register only for Indonesian Number.
 
-Terimakasih.
+Will do better on next project.
+
 @MartinDewe
