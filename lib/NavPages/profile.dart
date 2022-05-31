@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:perawat_app/LoginRegister/logout.dart';
+import 'package:perawat_app/ProfileContent/userprofile.dart';
 
 
-final Stream<QuerySnapshot> users = 
-  FirebaseFirestore.instance.collection('users').snapshots();
+
+final Stream<QuerySnapshot> users =  FirebaseFirestore.instance.collection('users').snapshots();
+// final db = FirebaseFirestore.instance.collection('users').where('uid',isEqualTo: uuid).get();
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -17,7 +19,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-
+  
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +38,11 @@ class _ProfileState extends State<Profile> {
               child: Padding(
                 padding: EdgeInsets.only(top: mediaheight*0.1),
                 child: CircleAvatar(
-                radius: 56,
-                backgroundColor: Colors.yellow[200],
+                radius: mediaheight*0.075,
+                backgroundColor: Colors.black12,
                 child: Padding(
-                  padding: const EdgeInsets.all(4), // Border radius
-                  child: ClipOval(child: Image.asset('assets/girl.png')),
+                  padding: const EdgeInsets.all(2), // Border radius
+                  child: Expanded(child: Image.asset('assets/mascot.png')),
                 ),
                 ),
               ),
@@ -60,10 +62,11 @@ class _ProfileState extends State<Profile> {
                     }
                     final data = snapshot.requireData;
                     final indexing = snapshot.data!.docs;
-                    final uuid = FirebaseAuth.instance.currentUser?.uid;
+                   
                     int rank = 0;
+                    final uuid = FirebaseAuth.instance.currentUser?.uid;
                     int index = getid(rank, indexing, uuid).toInt();
-                  
+   
                     return Text(
                       '${data.docs[index]['name']}',
                       style: GoogleFonts.poppins(
@@ -105,13 +108,16 @@ class _ProfileState extends State<Profile> {
               Center(
                 child: InkWell(
                 onTap: (){
-                
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Userprofile() ),
+                );
                 },
                 child: Padding(
                   padding: EdgeInsets.only(top: mediaheight*0.03),
                   child: Ink(
                     width: mediawidth*0.9,
-                    height: 50,
+                    height: mediaheight*0.068,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10)
@@ -130,7 +136,7 @@ class _ProfileState extends State<Profile> {
                           ),
                       
                         Text(
-                          'Profil',
+                          'Profile',
                             style: GoogleFonts.poppins(
                             color: Colors.black,
                             fontWeight: FontWeight.w400, 
@@ -160,12 +166,12 @@ class _ProfileState extends State<Profile> {
               Center(
               child: GestureDetector(
               onTap: (){
-               
+              
               },
               child: Container(
                 margin: EdgeInsets.only(top: mediaheight*0.01),
                 width: mediawidth*0.9,
-                height: 50,
+                height: mediaheight*0.068,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10)
@@ -217,7 +223,7 @@ class _ProfileState extends State<Profile> {
               child: Container(
                 margin: EdgeInsets.only(top: mediaheight*0.01),
                 width: mediawidth*0.9,
-                height: 50,
+                height: mediaheight*0.068,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10)
@@ -272,7 +278,7 @@ class _ProfileState extends State<Profile> {
               child: Container(
                 margin: EdgeInsets.only(top: mediaheight*0.01),
                 width: mediawidth*0.9,
-                height: 50,
+                height: mediaheight*0.068,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10)
@@ -309,7 +315,6 @@ class _ProfileState extends State<Profile> {
                       ),
                     ),
                   
-                    
                   ]
                 ),
               ),
@@ -331,7 +336,7 @@ class _ProfileState extends State<Profile> {
   getid(int rank, var data,String? uid,){
     for (int i = 0; i < data.length; i++) {
     if (uid == data[i].reference.id) {
-      rank = i + 1;
+      rank = i ;
     }
     }
     return rank;

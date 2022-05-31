@@ -109,10 +109,12 @@ class _Otpsection extends State<Otpsection> {
                         await _auth.signInWithCredential(credential);
                         final User? users = _auth.currentUser;
                         final uid = users!.uid;
-                        await FirebaseFirestore.instance.collection('users').doc(widget.phonenumber).set(
+                        await FirebaseFirestore.instance.collection('users').doc(uid).set(
                         {
                           'name': widget.phonenumber,
-                          'uid' : uid
+                          'phone' : widget.phonenumber,
+                          'uid' : uid,
+                          'email' : null
                         }
                         );
                         setState(() {
