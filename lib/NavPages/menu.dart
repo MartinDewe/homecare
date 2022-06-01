@@ -583,7 +583,7 @@ void _bottomsheet(){
                     child: Column(
                       children: [
                         Text(
-                        'Jasa',
+                        'Jaga',
                         style: GoogleFonts.poppins(
                           color: Colors.black,
                           fontWeight: FontWeight.normal, 
@@ -591,7 +591,7 @@ void _bottomsheet(){
                           ), 
                         ),
                         Text(
-                        'Perawat',
+                        'Pasien',
                         style: GoogleFonts.poppins(
                           color: Colors.black,
                           fontWeight: FontWeight.normal, 

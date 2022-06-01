@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,6 @@ import 'package:perawat_app/ProfileContent/userprofile.dart';
 
 
 final Stream<QuerySnapshot> users =  FirebaseFirestore.instance.collection('users').snapshots();
-// final db = FirebaseFirestore.instance.collection('users').where('uid',isEqualTo: uuid).get();
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -166,7 +166,7 @@ class _ProfileState extends State<Profile> {
               Center(
               child: GestureDetector(
               onTap: (){
-              
+               
               },
               child: Container(
                 margin: EdgeInsets.only(top: mediaheight*0.01),

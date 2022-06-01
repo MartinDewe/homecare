@@ -1,13 +1,14 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
 final inputankontroler = TextEditingController();
 final emailkontroler = TextEditingController();
 final uuid = FirebaseAuth.instance.currentUser?.uid;
+final Stream<QuerySnapshot> users =  FirebaseFirestore.instance.collection('users').snapshots();
 
 class Userprofile extends StatefulWidget {
   const Userprofile({Key? key}) : super(key: key);
@@ -122,6 +123,21 @@ class _UserprofileState extends State<Userprofile> {
                         'email' : emailkontroler.text,
                       }
                   );
+                  Flushbar(
+                      title:  "Berhasil",
+                      message:  "Profile Berhasil Diperbarui",
+                      duration:  const Duration(seconds: 3),
+                      flushbarPosition: FlushbarPosition.TOP,
+                      backgroundColor: Colors.black87,
+                      margin: EdgeInsets.only(top: mediaheight*0.01, left: mediawidth*0.03, right: mediawidth*0.03),
+                      borderRadius: BorderRadius.circular(15),
+                      icon: const Icon(
+                        Icons.check_circle_rounded,
+                        color: Color.fromARGB(255, 88, 228, 93),
+                  ),
+
+                ).show(context);
+
                   }
                 }, 
                 child: const Text("Ubah Profile",
@@ -141,5 +157,12 @@ class _UserprofileState extends State<Userprofile> {
           ),
       ),
     );
+
+    _formFilled(){
+
+      
+
+    }
+
   }
 }

@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
@@ -8,6 +9,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 final otpinputankcontroler = TextEditingController();
 FirebaseAuth _auth = FirebaseAuth.instance;
+final uuid = FirebaseAuth.instance.currentUser?.uid;
 
 class Otplogin extends StatefulWidget {
 
@@ -103,7 +105,11 @@ class _Otplogin extends State<Otplogin> {
                             loadingcontrol = false;
                             errortampil = false;
                           });
-                          
+                          await FirebaseFirestore.instance.collection('users').doc(uuid).update(
+                            {
+                              'uid': uuid
+                            }
+                          );
                           Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(builder: (context) => const HomePage() ),
