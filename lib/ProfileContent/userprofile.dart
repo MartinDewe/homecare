@@ -11,7 +11,8 @@ final uuid = FirebaseAuth.instance.currentUser?.uid;
 final Stream<QuerySnapshot> users =  FirebaseFirestore.instance.collection('users').snapshots();
 
 class Userprofile extends StatefulWidget {
-  const Userprofile({Key? key}) : super(key: key);
+  final String phonenumber;
+  const Userprofile({Key? key, required this.phonenumber}) : super(key: key);
 
   @override
   State<Userprofile> createState() => _UserprofileState();
@@ -117,7 +118,7 @@ class _UserprofileState extends State<Userprofile> {
               child: ElevatedButton(
                 onPressed: () async {
                   if(_formKey.currentState!.validate()) {
-                  await FirebaseFirestore.instance.collection('users').doc(uuid).update(
+                  await FirebaseFirestore.instance.collection('users').doc(widget.phonenumber).update(
                       {
                         'name': inputankontroler.text,
                         'email' : emailkontroler.text,
@@ -157,12 +158,6 @@ class _UserprofileState extends State<Userprofile> {
           ),
       ),
     );
-
-    _formFilled(){
-
-      
-
-    }
 
   }
 }

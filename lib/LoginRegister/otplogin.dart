@@ -105,7 +105,7 @@ class _Otplogin extends State<Otplogin> {
                             loadingcontrol = false;
                             errortampil = false;
                           });
-                          await FirebaseFirestore.instance.collection('users').doc(uuid).update(
+                          await FirebaseFirestore.instance.collection('users').doc(widget.phonenumber).update(
                             {
                               'uid': uuid
                             }

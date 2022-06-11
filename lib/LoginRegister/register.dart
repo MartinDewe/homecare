@@ -15,7 +15,6 @@ enum androidvertifikasi{
   stateotp
 }
 
-
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
 
@@ -42,6 +41,7 @@ class _Register extends State<Register> {
    
     return  MaterialApp(
       home: Stack(
+        
         children: [
           Scaffold(
           backgroundColor: Colors.white,

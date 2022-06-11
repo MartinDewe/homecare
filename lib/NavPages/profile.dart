@@ -1,4 +1,3 @@
-import 'package:another_flushbar/flushbar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +9,8 @@ import 'package:perawat_app/ProfileContent/userprofile.dart';
 
 
 final Stream<QuerySnapshot> users =  FirebaseFirestore.instance.collection('users').snapshots();
+var numberphone;
+
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -65,8 +66,9 @@ class _ProfileState extends State<Profile> {
                    
                     int rank = 0;
                     final uuid = FirebaseAuth.instance.currentUser?.uid;
-                    int index = getid(rank, indexing, uuid).toInt();
-   
+                    int index = getid(rank, indexing, uuid, data).toInt();
+                    numberphone = '${data.docs[index]['phone']}';
+
                     return Text(
                       '${data.docs[index]['name']}',
                       style: GoogleFonts.poppins(
@@ -110,7 +112,7 @@ class _ProfileState extends State<Profile> {
                 onTap: (){
                   Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Userprofile() ),
+                  MaterialPageRoute(builder: (context) =>  Userprofile(phonenumber: numberphone,) ),
                 );
                 },
                 child: Padding(
@@ -165,8 +167,8 @@ class _ProfileState extends State<Profile> {
           
               Center(
               child: GestureDetector(
-              onTap: (){
-               
+              onTap: () {
+           
               },
               child: Container(
                 margin: EdgeInsets.only(top: mediaheight*0.01),
@@ -333,14 +335,17 @@ class _ProfileState extends State<Profile> {
 
   }
 
-  getid(int rank, var data,String? uid,){
+  getid(int rank, var data, String? uid, QuerySnapshot snapshot){
+
     for (int i = 0; i < data.length; i++) {
-    if (uid == data[i].reference.id) {
-      rank = i ;
-    }
+      var getstr = '${snapshot.docs[i]['uid']}';
+      if (uid == getstr) {
+        rank = i ;
+      }
     }
     return rank;
   }
+
 
 void _bottomsheet(){
   
