@@ -115,12 +115,14 @@ class _Otplogin extends State<Otplogin> {
                             MaterialPageRoute(builder: (context) => const HomePage() ),
                             (Route<dynamic> route) => false
                           );
-                        }on Exception {
-                          setState(() {
-                              loadingcontrol = false;
-                              errortampil = true;
-                          });
-       
+                        }on FirebaseAuthException catch (e) {
+                          
+                          if (e.code == 'invalid-verification-code') {
+                              setState(() {
+                                loadingcontrol = false;
+                                errortampil = true;
+                              });
+                            }
                         }
                         
                       },

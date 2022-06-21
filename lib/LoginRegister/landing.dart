@@ -4,15 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:perawat_app/LoginRegister/login.dart';
 import 'package:perawat_app/LoginRegister/register.dart';
 
-
-  void navarchange(){
-    
-     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      systemNavigationBarColor: Colors.yellow[200],
-    ));
-
-  }
-
   class Landing extends StatelessWidget {
   const Landing({Key? key}) : super(key: key);
 
@@ -25,7 +16,10 @@ import 'package:perawat_app/LoginRegister/register.dart';
     home: Scaffold(   
       
       backgroundColor: Colors.yellow[200],
-      body:  ListView(
+      body:  AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.light.copyWith(systemNavigationBarColor: Colors.yellow[200],
+      ),
+      child:ListView(
         children: <Widget> [
         Column(
         children: [ 
@@ -145,6 +139,7 @@ import 'package:perawat_app/LoginRegister/register.dart';
       ]
       ),
       
+      )
       )
       );
   }

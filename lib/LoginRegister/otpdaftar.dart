@@ -128,14 +128,16 @@ class _Otpsection extends State<Otpsection> {
                           MaterialPageRoute(builder: (context) => const HomePage() ),
                             (Route<dynamic> route) => false
                         );
-                      }on Exception {
-                        setState(() {
-                            loadingcontrol = false;
-                            errortampil = true;
-                        });
-      
-                      }
-                      
+                      }on FirebaseAuthException catch (e) {
+                          
+                          if (e.code == 'invalid-verification-code') {
+                              setState(() {
+                                loadingcontrol = false;
+                                errortampil = true;
+                              });
+                            }
+                        }
+                        
                       },
                       onChanged: (value) {
                         setState(() {
