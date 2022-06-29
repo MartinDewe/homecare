@@ -64,7 +64,8 @@ class _ListPerawatState extends State<ListPerawat> {
                 return ListView.builder(
                   itemCount: data.size,
                   itemBuilder: (context, index){
-                    return InkWell(
+                    final status = data.docs[index]['online'] as bool;
+                    return GestureDetector(
                       onTap: (){},
                       child: Container(
                         margin: EdgeInsets.only( top: mediaheight*0.02, left: mediawidth*0.05, right: mediawidth*0.05),
@@ -121,10 +122,35 @@ class _ListPerawatState extends State<ListPerawat> {
                               ),
                            ),
 
-                           Column(
-                            children: [
-                              
-                            ],
+                           Padding(
+                             padding: const EdgeInsets.only(left: 8.0),
+                             child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                 '${data.docs[index]['name']}',
+                                   style: GoogleFonts.lato(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 18,
+                                    ), 
+                                ),
+                               status?Text(
+                                  'Online',
+                                   style: GoogleFonts.lato(
+                                      color: Colors.teal[300],
+                                      fontSize: 16,
+                                  ), 
+                                ):Text(
+                                  'Offline',
+                                   style: GoogleFonts.lato(
+                                      color: Colors.red[300],
+                                      fontSize: 16,
+                                  ), 
+                                )
+                              ],
+                             ),
                            )
                            
                           ],

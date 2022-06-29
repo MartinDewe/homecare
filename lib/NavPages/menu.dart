@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:perawat_app/LoginRegister/landing.dart';
+import 'package:perawat_app/SubMenu/listperawat.dart';
 
 class MainMenu extends StatefulWidget {
   const MainMenu({Key? key}) : super(key: key);
@@ -12,7 +14,12 @@ class MainMenu extends StatefulWidget {
 class _MainMenu extends State<MainMenu> {
   @override
   Widget build(BuildContext context) {
-    return contentView();
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.white,
+        body: contentView()
+        ),
+    );
   }
 
   contentView() {
@@ -119,14 +126,14 @@ class _MainMenu extends State<MainMenu> {
                       child: const Padding(
                         padding:  EdgeInsets.all(10.0),
                         child:  Image(
-                          image: AssetImage('assets/coronavirus.png'),
+                          image: AssetImage('assets/physiotherapy.png'),
                         ),
                       ),
                     ),
                      Padding(
                       padding: EdgeInsets.only(top:mediaheight*0.01),
                       child: Text(
-                        'Covid-19',
+                        'Fisioterapi',
                         style: GoogleFonts.poppins(
                             color: Colors.black,
                             fontWeight: FontWeight.normal, 
@@ -316,14 +323,14 @@ void _bottomsheet(){
                     child: const Padding(
                       padding:  EdgeInsets.all(10.0),
                       child:  Image(
-                        image: AssetImage('assets/coronavirus.png'),
+                        image: AssetImage('assets/physiotherapy.png'),
                       ),
                     ),
                   ),
                     Padding(
                     padding: EdgeInsets.only(top:mediaheight*0.01),
                     child: Text(
-                      'Covid-19',
+                      'Fisioterapi',
                       style: GoogleFonts.poppins(
                           color: Colors.black,
                           fontWeight: FontWeight.normal, 
@@ -428,7 +435,7 @@ void _bottomsheet(){
                     child: const Padding(
                       padding:  EdgeInsets.all(10.0),
                       child:  Image(
-                        image: AssetImage('assets/apple.png'),
+                        image: AssetImage('assets/lab.png'),
                       ),
                     ),
                   ),
@@ -437,7 +444,7 @@ void _bottomsheet(){
                     child: Column(
                       children: [
                         Text(
-                        'Konsultasi',
+                        'Uji',
                         style: GoogleFonts.poppins(
                           color: Colors.black,
                           fontWeight: FontWeight.normal, 
@@ -445,7 +452,7 @@ void _bottomsheet(){
                           ), 
                         ),
                         Text(
-                        'Gizi',
+                        'Laboratory',
                         style: GoogleFonts.poppins(
                           color: Colors.black,
                           fontWeight: FontWeight.normal, 
@@ -559,7 +566,10 @@ void _bottomsheet(){
       
               GestureDetector(
                 onTap: (){
-      
+                   Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ListPerawat() ),
+                );
                 },
                 child: Column(
                   children: [
