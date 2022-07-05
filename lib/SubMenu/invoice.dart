@@ -55,12 +55,9 @@ class _InvoiceState extends State<Invoice> {
                     ),
                   ),
 
-                  CustomPaint(
-                    size: Size(mediawidth*0.85,mediaheight*0.07), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                    painter: RPSCustomPainter(),
-                  ),
                   Container(
-                    height: mediaheight*0.8,
+                    margin: EdgeInsets.only(top: mediaheight*0.07),
+                    height: mediaheight*0.9,
                     width: mediawidth,
                     decoration:  BoxDecoration(
                       color: Colors.grey[50], 
@@ -86,7 +83,7 @@ class _InvoiceState extends State<Invoice> {
                                   ), 
                                 ),
                                 Text(
-                                'Jumlah Total',
+                                'Metode Bayar',
                                   style: GoogleFonts.roboto(
                                     color: Colors.black54,
                                     fontSize: 19,
@@ -102,17 +99,18 @@ class _InvoiceState extends State<Invoice> {
                               children: [
                                 Text(
                                 'Ilham M. H.',
-                                  style: GoogleFonts.roboto(
+                                  style: GoogleFonts.openSans(
                                     color: Colors.black,
                                     fontSize: 22,
                                   ), 
                                 ),
 
                                 Text(
-                                'Rp. 250.000',
-                                  style: GoogleFonts.roboto(
-                                    color: Colors.black,
+                                'Cash',
+                                  style: GoogleFonts.openSans(
+                                    color: Colors.lightBlue,
                                     fontSize: 22,
+                                    fontWeight: FontWeight.bold
                                   ), 
                                 ),
                               ],
@@ -132,14 +130,247 @@ class _InvoiceState extends State<Invoice> {
                                 ),
                                 boxShadow: [
                                 BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
+                                  color: Colors.grey.withOpacity(0.3),
                                   spreadRadius: 1,
                                   blurRadius: 25,
                                   offset: const Offset(0, 1), // changes position of shadow
                                 ),
                               ],
-                              )
-                              
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    width: mediawidth,
+                                    height: mediaheight*0.2,
+                                    decoration:   BoxDecoration(
+                                      color: Colors.yellow[100], 
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft:  Radius.circular(15.0),
+                                      ),
+                                    ),
+                                   child:  const Padding(
+                                     padding: EdgeInsets.all(15.0),
+                                     child:  Image(
+                                      image: AssetImage('assets/mascot.png'),
+                                     
+                                  ),
+                                   ),
+                                  ),
+
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      icon: const Icon(Icons.description_outlined, color: Colors.black),
+                                      onPressed: (){},
+                                    ), 
+                                    Text(
+                                    'Invoice Details',
+                                      style: GoogleFonts.openSans(
+                                        color: Colors.black,
+                                        fontSize: 19,
+                                      ), 
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(left: mediawidth*0.04),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                          'Nama Perawat',
+                                            style: GoogleFonts.openSans(
+                                              color: Colors.black54,
+                                              fontSize: 16,
+                                            ), 
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(top:mediaheight*0.008),
+                                            child: Text(
+                                            'Grace Dion',
+                                              style: GoogleFonts.openSans(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16,
+                                              ), 
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+
+                                    Container(
+                                      width: 2,
+                                      height: 40,
+                                      color: Colors.black54,
+                                    ),
+
+                                    Padding(
+                                      padding:  EdgeInsets.only(right: mediawidth*0.08),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                          'Tanggal Invoice',
+                                            style: GoogleFonts.openSans(
+                                              color: Colors.black54,
+                                              fontSize: 16,
+                                            ), 
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(top:mediaheight*0.008),
+                                            child: Text(
+                                            '7 Juli 2022',
+                                              style: GoogleFonts.openSans(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16,
+                                              ), 
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+
+                                  ]
+                                ),
+
+                                  Container(
+                                    margin: EdgeInsets.only( top:mediaheight*0.014, left: mediawidth*0.045, right: mediawidth*0.06 ),
+                                    width: mediawidth,
+                                    height: 1,
+                                    color: Colors.grey,
+                                  ),
+
+                                   Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                     children: [
+                                       Padding(
+                                          padding: EdgeInsets.only(left: mediawidth*0.04, top : mediaheight*0.015 ),
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                              'Rincian',
+                                                style: GoogleFonts.openSans(
+                                                  color: Colors.black54,
+                                                  fontSize: 16,
+                                                ), 
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsets.only(top:mediaheight*0.01),
+                                                child: Text(
+                                                'Biaya Perawat',
+                                                  style: GoogleFonts.openSans(
+                                                    color: Colors.black,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 16,
+                                                  ), 
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+
+                                        Padding(
+                                          padding: EdgeInsets.only( top : mediaheight*0.015, right: mediawidth*0.06 ),
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.end,
+                                            children: [
+                                              Text(
+                                              'Harga',
+                                                style: GoogleFonts.openSans(
+                                                  color: Colors.black54,
+                                                  fontSize: 16,
+                                                ), 
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsets.only(top:mediaheight*0.01),
+                                                child: Text(
+                                                'Rp. 100.000',
+                                                  style: GoogleFonts.openSans(
+                                                    color: Colors.black,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 16,
+                                                  ), 
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        
+                                     ],
+                                   ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(top:mediaheight*0.01, left: mediawidth*0.04),
+                                        child: Text(
+                                        'Fisioterapi',
+                                          style: GoogleFonts.openSans(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                          ), 
+                                        ),
+                                      ),
+
+                                      Padding(
+                                        padding: EdgeInsets.only(top:mediaheight*0.01, right: mediawidth*0.06),
+                                        child: Text(
+                                        'Rp. 150.000',
+                                          style: GoogleFonts.openSans(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                          ), 
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+
+                                  Container(
+                                    margin: EdgeInsets.only( top:mediaheight*0.03, left: mediawidth*0.045, right: mediawidth*0.06 ),
+                                    width: mediawidth,
+                                    height: 1,
+                                    color: Colors.grey,
+                                  ),
+
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(top:mediaheight*0.03, left: mediawidth*0.04),
+                                        child: Text(
+                                        'Jumlah Total',
+                                          style: GoogleFonts.openSans(
+                                            color: Colors.black54,
+                                            fontSize: 16,
+                                          ), 
+                                        ),
+                                      ),
+
+                                      Padding(
+                                        padding: EdgeInsets.only(top:mediaheight*0.03, right: mediawidth*0.06),
+                                        child: Text(
+                                        'Rp. 250.000',
+                                          style: GoogleFonts.openSans(
+                                            color: Colors.cyan,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                          ), 
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ]
@@ -148,6 +379,15 @@ class _InvoiceState extends State<Invoice> {
                   ),
                 ],
               ),
+
+                  Padding(
+                    padding:  EdgeInsets.only(top: mediaheight*0.136),
+                    child: CustomPaint(
+                      size: Size(mediawidth*0.85,mediaheight*0.07), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                      painter: RPSCustomPainter(),
+                    ),
+                  ),
+                
              
             ],
           ),
