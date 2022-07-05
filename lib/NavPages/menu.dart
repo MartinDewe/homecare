@@ -111,7 +111,10 @@ class _MainMenu extends State<MainMenu> {
                 //Start Content
                 GestureDetector(
                   onTap: (){
-                      
+                      Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const ListPerawat() ),
+                    );
                   },
                   child: Column(
                     children: [
@@ -148,7 +151,10 @@ class _MainMenu extends State<MainMenu> {
                 //break Line 1
                 GestureDetector(
                   onTap: (){
-
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ListPerawat() ),
+                  );
                   },
                   child: Column(
                     children: [
@@ -185,7 +191,10 @@ class _MainMenu extends State<MainMenu> {
                 //break line 2
                 GestureDetector(
                   onTap: (){
-
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ListPerawat() ),
+                  );
                   },
                   child: Column(
                     children: [
@@ -308,7 +317,10 @@ void _bottomsheet(){
             children: [
               GestureDetector(
                 onTap: (){
-      
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ListPerawat() ),
+                );
                 },
                 child: Column(
                   children: [
@@ -345,7 +357,10 @@ void _bottomsheet(){
               //break Line 1
               GestureDetector(
                 onTap: (){
-      
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ListPerawat() ),
+                );
                 },
                 child: Column(
                   children: [
@@ -383,7 +398,10 @@ void _bottomsheet(){
       
               GestureDetector(
                 onTap: (){
-      
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ListPerawat() ),
+                );
                 },
                 child: Column(
                   children: [
@@ -420,7 +438,10 @@ void _bottomsheet(){
               //break Line 3
               GestureDetector(
                 onTap: (){
-      
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ListPerawat() ),
+                );
                 },
                 child: Column(
                   children: [
@@ -479,7 +500,10 @@ void _bottomsheet(){
             children: [
               GestureDetector(
                 onTap: (){
-             
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ListPerawat() ),
+                );
                 },
                 child: Column(
                   children: [
@@ -528,7 +552,10 @@ void _bottomsheet(){
               //break Line 1
               GestureDetector(
                 onTap: (){
-      
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ListPerawat() ),
+                );
                 },
                 child: Column(
                   children: [
@@ -566,7 +593,7 @@ void _bottomsheet(){
       
               GestureDetector(
                 onTap: (){
-                   Navigator.push(
+                  Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const ListPerawat() ),
                 );
@@ -618,7 +645,10 @@ void _bottomsheet(){
               //break Line 3
               GestureDetector(
                 onTap: (){
-      
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ListPerawat() ),
+                );
                 },
                 child: Column(
                   children: [
