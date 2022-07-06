@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:perawat_app/SubMenu/invoice.dart';
 
 
 final Stream<QuerySnapshot> nurse =  FirebaseFirestore.instance.collection('nurse').snapshots();
@@ -66,7 +67,12 @@ class _ListPerawatState extends State<ListPerawat> {
                   itemBuilder: (context, index){
                     final status = data.docs[index]['online'] as bool;
                     return GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Invoice() ),
+                        );
+                      },
                       child: Container(
                         margin: EdgeInsets.only( top: mediaheight*0.02, left: mediawidth*0.05, right: mediawidth*0.05),
                         width: mediawidth,

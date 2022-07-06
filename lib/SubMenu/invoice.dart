@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:perawat_app/SubMenu/loading.dart';
 
 
 class Invoice extends StatefulWidget {
@@ -35,7 +36,7 @@ class _InvoiceState extends State<Invoice> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(top : mediaheight*0.07, left: mediawidth*0.01),
+                    padding: EdgeInsets.only(top : mediaheight*0.06, left: mediawidth*0.01),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -57,7 +58,7 @@ class _InvoiceState extends State<Invoice> {
 
                   Container(
                     margin: EdgeInsets.only(top: mediaheight*0.07),
-                    height: mediaheight*0.9,
+                    height: mediaheight*0.85,
                     width: mediawidth,
                     decoration:  BoxDecoration(
                       color: Colors.grey[50], 
@@ -381,7 +382,7 @@ class _InvoiceState extends State<Invoice> {
               ),
 
                   Padding(
-                    padding:  EdgeInsets.only(top: mediaheight*0.136),
+                    padding:  EdgeInsets.only(top: mediaheight*0.126),
                     child: CustomPaint(
                       size: Size(mediawidth*0.85,mediaheight*0.07), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
                       painter: RPSCustomPainter(),
@@ -391,9 +392,43 @@ class _InvoiceState extends State<Invoice> {
              
             ],
           ),
-        )
+        ),
+
+        bottomNavigationBar: Container(
+          width: mediawidth,
+          height: mediaheight*0.08,
+          color: Colors.grey[50],
+          alignment: Alignment.center,
+          child: Padding(
+            padding: EdgeInsets.only(left: mediawidth*0.06, right: mediawidth*0.07),
+            child: SizedBox(
+              width: mediawidth,
+              child: ElevatedButton(
+                onPressed: (){
+                  Navigator.pushAndRemoveUntil(
+                    this.context,
+                    MaterialPageRoute(builder: (context) => const Loadingback() ),
+                    (Route<dynamic> route) => false
+                  );
+                },
+                child: const Text("Order Sekarang",
+                  style: TextStyle(
+                    color: Colors.black, 
+                    fontWeight: FontWeight.bold, 
+                    fontSize: 16, ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.cyan[200],
+                  
+                ),
+              ),
+            ),
+          ),
+        ),
+
       )
     );
+
   }
 }
 
@@ -401,8 +436,6 @@ class RPSCustomPainter extends CustomPainter{
   
   @override
   void paint(Canvas canvas, Size size) {
-    
-    
 
   Paint paint0 = Paint()
       ..color = const Color.fromARGB(255, 250, 250, 250)
